@@ -5,30 +5,31 @@ var gk_fileData = {};
 function filledCell(cell) {
   return cell !== '' && cell != null;
 }
-function loadFileData(filename) {
-  if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-    try {
-      var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-      var firstSheetName = workbook.SheetNames[0];
-      var worksheet = workbook.Sheets[firstSheetName];
-      var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-      var filteredData = jsonData.filter(function(row){ return row.some(filledCell); });
-      var headerRowIndex = filteredData.findIndex(function(row, index){
-        var cur = row.filter(filledCell).length;
-        var next = (filteredData[index + 1] || []).filter(filledCell).length;
-        return cur >= next;
-      });
-      if (headerRowIndex === -1 || headerRowIndex > 25) headerRowIndex = 0;
-      var csvSheet = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
-      var csv = XLSX.utils.sheet_to_csv(csvSheet, { header: 1 });
-      return csv;
-    } catch (e) {
-      console.error(e);
-      return "";
-    }
-  }
-  return gk_fileData[filename] || "";
-}
+// Commented out - not currently used
+// function loadFileData(filename) {
+//   if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+//     try {
+//       var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+//       var firstSheetName = workbook.SheetNames[0];
+//       var worksheet = workbook.Sheets[firstSheetName];
+//       var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+//       var filteredData = jsonData.filter(function(row){ return row.some(filledCell); });
+//       var headerRowIndex = filteredData.findIndex(function(row, index){
+//         var cur = row.filter(filledCell).length;
+//         var next = (filteredData[index + 1] || []).filter(filledCell).length;
+//         return cur >= next;
+//       });
+//       if (headerRowIndex === -1 || headerRowIndex > 25) headerRowIndex = 0;
+//       var csvSheet = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
+//       var csv = XLSX.utils.sheet_to_csv(csvSheet, { header: 1 });
+//       return csv;
+//     } catch (e) {
+//       console.error(e);
+//       return "";
+//     }
+//   }
+//   return gk_fileData[filename] || "";
+// }
 
 // Slides definition (moved from inline Babel script)
 const slides = [
@@ -564,8 +565,8 @@ const slides = [
             <h3 className="text-blue-900 mb-2">What success looks like in measurable terms</h3>
             <ul className="subtle-list">
               <li>TTR (time-to-render) under 2s on mid-tier Android and iOS.</li>
-              <li>90%+ coach satisfaction in UAT surveys; CSAT > 4.5/5.</li>
-              <li>Share flow under 3 taps; export in &lt; 10s for 1080p videos.</li>
+              <li>90%+ coach satisfaction in UAT surveys; CSAT {'>'} 4.5/5.</li>
+              <li>Share flow under 3 taps; export in {'<'} 10s for 1080p videos.</li>
               <li>Localization enabled; initial English and Croatian support.</li>
             </ul>
           </div>
@@ -1032,21 +1033,23 @@ const slides = [
 ];
 
 // Groups for splitting into multiple pages
-const GROUPS = {
-  overview: [0,1,2,3,4,16,17],
-  features: [5,6,7,18,19,20,21,22,23,24],
-  process: [8,9,10,11,25,26,27,28],
-  terms: [12,13,14,29,30],
-  next: [15,31]
-};
+// Not currently used - using all slides directly
+// const GROUPS = {
+//   overview: [0,1,2,3,4,16,17],
+//   features: [5,6,7,18,19,20,21,22,23,24],
+//   process: [8,9,10,11,25,26,27,28],
+//   terms: [12,13,14,29,30],
+//   next: [15,31]
+// };
 
-function getSlidesForGroup(group) {
-  const indices = GROUPS[group] || GROUPS.overview;
-  return indices.map(i => slides[i]);
-}
+// Not currently used - using allSlides directly
+// function getSlidesForGroup(group) {
+//   const indices = GROUPS[group] || GROUPS.overview;
+//   return indices.map(i => slides[i]);
+// }
 
 function Slide(props) {
-  const { title, content, bg, overlay, decoLeft, decoRight } = props;
+  const { title, content, overlay, decoLeft, decoRight } = props;
   return (
     <div className="slide">
       <div className="bg-overlay" style={{ backgroundImage: `url(${overlay})` }}></div>
@@ -1062,8 +1065,8 @@ function Slide(props) {
 }
 
 function App() {
-  const group = (window.PAGE || 'overview');
-  const groupSlides = React.useMemo(() => getSlidesForGroup(group), [group]);
+  // const group = (window.PAGE || 'overview'); // Not used - using all slides
+  // const groupSlides = React.useMemo(() => getSlidesForGroup(group), [group]); // Not used - using allSlides instead
   const [currentSlide, setCurrentSlide] = React.useState(0);
   // Reader/presentation mode with persistence and URL override
   const [readerMode, setReaderMode] = React.useState(() => {
@@ -1087,22 +1090,22 @@ function App() {
 
   // Section order and corresponding page URLs for cross-section navigation
   // Single-presentation mode: one unified sequence of slides
-  const sectionOrder = ['overview'];
-  const sectionToUrl = {
-    overview: 'index.html'
-  };
+  // const sectionOrder = ['overview']; // Not currently used
+  // const sectionToUrl = {
+  //   overview: 'index.html'
+  // }; // Not currently used
 
   // Build a flattened list of all slides across all sections (single presentation)
   const allSlides = React.useMemo(() => slides, []);
 
-  const goToSection = (sectionKey, slideIndex) => {
-    // If navigating within the same section, update local state; otherwise navigate to page URL
-    if (sectionKey === group) {
-      setCurrentSlide(slideIndex);
-    } else {
-      window.location.href = sectionToUrl[sectionKey] || 'index.html';
-    }
-  };
+  // const goToSection = (sectionKey, slideIndex) => {
+  //   // If navigating within the same section, update local state; otherwise navigate to page URL
+  //   if (sectionKey === group) {
+  //     setCurrentSlide(slideIndex);
+  //   } else {
+  //     window.location.href = sectionToUrl[sectionKey] || 'index.html';
+  //   }
+  // }; // Not currently used
 
   const nextSlide = () => {
     if (currentSlide < allSlides.length - 1) {
