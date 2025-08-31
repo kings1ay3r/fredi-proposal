@@ -1048,7 +1048,7 @@ function getSlidesForGroup(group) {
 function Slide(props) {
   const { title, content, bg, overlay, decoLeft, decoRight } = props;
   return (
-    <div className={`slide ${bg}`}>
+    <div className="slide">
       <div className="bg-overlay" style={{ backgroundImage: `url(${overlay})` }}></div>
       {/* Reduce playful rotating icons for a more professional look; keep optional if provided */}
       {decoLeft && <img src={decoLeft} alt="Decoration Left" className="football-deco-left" />}
