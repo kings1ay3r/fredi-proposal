@@ -31,11 +31,10 @@ function filledCell(cell) {
 //   return gk_fileData[filename] || "";
 // }
 
-
-// Reordered slides for logical proposal flow
+// Slides definition (moved from inline Babel script)
+// Reordered for logical proposal flow
 const slides = [
-  // ======== OPENING & CONTEXT (5 slides) ========
-  // 1. Title Slide
+  // Opening & Context
   {
     title: "Proposal for Developing a Custom Tactical Coaching Application",
     content: (
@@ -65,8 +64,6 @@ const slides = [
     decoLeft: "",
     decoRight: ""
   },
-  
-  // 2. Executive Summary
   {
     title: "Executive Summary",
     content: (
@@ -99,92 +96,36 @@ const slides = [
     decoLeft: "",
     decoRight: ""
   },
-  
-  // 3. Problem Statement  
   {
     title: "Problem Statement",
-    content: (
-      <div className="animate-slideInRight">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Context</span>
-            <h3 className="text-blue-900 mb-2">Why build a TacticalPad replica now?</h3>
-            <ul className="subtle-list">
-              <li>Coaches need fast, mobile-first tools to communicate ideas visually.</li>
-              <li>Existing tools are fragmented or platform-limited; collaboration is clunky.</li>
-              <li>Media teams want crisp exports and animations for broadcasts and socials.</li>
-              <li>Gap: unified, modern UX with share-first workflows across devices.</li>
-            </ul>
-          </div>
-          <div className="media">
-            <img src="images/stadium_night.svg" alt="Match context" />
-          </div>
-        </div>
-      </div>
-    ),
-    bg: "bg-white",
-    overlay: "images/overlay_texture.svg",
-    decoLeft: "",
-    decoRight: ""
-  },
-  
-  // 4. Objectives & Success Criteria
-  {
-    title: "Objectives & Success Criteria",
     content: (
       <div className="animate-slideInLeft">
         <div className="grid-2">
           <div>
-            <span className="badge">Goals</span>
-            <h3 className="text-blue-900 mb-2">What success looks like in measurable terms</h3>
-            <ul className="subtle-list">
-              <li>TTR (time-to-render) under 2s on mid-tier Android and iOS.</li>
-              <li>90%+ coach satisfaction in UAT surveys; CSAT {'>'} 4.5/5.</li>
-              <li>Share flow under 3 taps; export in {'<'} 10s for 1080p videos.</li>
-              <li>Localization enabled; initial English and Croatian support.</li>
-            </ul>
+            <span className="badge">Who we are</span>
+            <h3 className="text-blue-900 mb-2">Experienced, focused, collaborative</h3>
+            <div className="cards">
+              <div className="card"><h3>Replication Expertise</h3><p>Delivered complex app replicas incl. sports tools with animation & rich media.</p></div>
+              <div className="card"><h3>Cross‑platform</h3><p>React Native + Unity for 3D. CI/CD and performance budgets baked in.</p></div>
+              <div className="card"><h3>Partner Mindset</h3><p>Agile delivery with transparent comms and rapid iteration loops.</p></div>
+            </div>
           </div>
-          <div className="cards">
-            <div className="card"><h3>KPIs</h3><p>Adoption, session length, export count, team shares.</p></div>
-            <div className="card"><h3>NFRs</h3><p>Accessibility, performance, reliability, security.</p></div>
-            <div className="card"><h3>Delight</h3><p>Smooth animations; beautiful exports; easy templates.</p></div>
+          <div>
+            <div className="media"><img src="images/team_collaboration.svg" alt="Our Team"/></div>
+            <div className="media-strip">
+              <img src="images/team_collaboration.svg" alt="Team work"/>
+              <img src="images/whiteboard_sketch.svg" alt="Design review"/>
+              <img src="images/code_screen.svg" alt="Engineering"/>
+            </div>
           </div>
         </div>
       </div>
     ),
     bg: "bg-green-50",
-    overlay: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=1920&auto=format&fit=crop&sat=20",
-    decoLeft: "",
-    decoRight: ""
-  },
-  
-  // 5. User Personas
-  {
-    title: "User Personas",
-    content: (
-      <div className="animate-slideInRight">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Users</span>
-            <h3 className="text-blue-900 mb-2">Who we're building for</h3>
-            <div className="cards">
-              <div className="card"><h3>Head Coach</h3><p>Creates drills; needs quick drawing and sharing with staff.</p></div>
-              <div className="card"><h3>Analyst</h3><p>Annotates videos; exports sequences; presents insights.</p></div>
-              <div className="card"><h3>Journalist</h3><p>Produces clean visuals and animations for articles.</p></div>
-            </div>
-          </div>
-          <div className="media"><img src="images/team_collaboration.svg" alt="Personas" /></div>
-        </div>
-      </div>
-    ),
-    bg: "bg-white",
     overlay: "images/overlay_texture.svg",
     decoLeft: "",
     decoRight: ""
   },
-
-  // ======== SOLUTION OVERVIEW (3 slides) ========
-  // 6. Project Understanding
   {
     title: "Project Understanding",
     content: (
@@ -212,38 +153,6 @@ const slides = [
     decoLeft: "",
     decoRight: ""
   },
-  
-  // 7. Competitive Landscape
-  {
-    title: "Competitive Landscape",
-    content: (
-      <div className="animate-slideInLeft">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Market</span>
-            <h3 className="text-blue-900 mb-2">How we differentiate</h3>
-            <ul className="subtle-list">
-              <li>Parity with TacticalPad core + smoother UX and collaboration.</li>
-              <li>2D-first with optional 3D via Unity module.</li>
-              <li>Better exports (brand presets, watermarks, social crops).</li>
-              <li>Pluggable data model to support multiple sports.</li>
-            </ul>
-          </div>
-          <div className="cards">
-            <div className="card"><h3>Advantage</h3><p>Performance, share flows, and multi-sport templates.</p></div>
-            <div className="card"><h3>Focus</h3><p>Coach workflows, analyst tooling, and team collaboration.</p></div>
-            <div className="card"><h3>Extensibility</h3><p>Open integration points; theming; localization.</p></div>
-          </div>
-        </div>
-      </div>
-    ),
-    bg: "bg-green-50",
-    overlay: "https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1920&auto=format&fit=crop&sat=25",
-    decoLeft: "",
-    decoRight: ""
-  },
-  
-  // 8. Scope of Work
   {
     title: "Scope of Work",
     content: (
@@ -275,9 +184,6 @@ const slides = [
     decoLeft: "",
     decoRight: ""
   },
-
-  // ======== CORE FEATURES (6 slides) ========
-  // 9. Core Features: Drawing & Visualization
   {
     title: "Core Features: Drawing & Visualization",
     content: (
@@ -311,8 +217,6 @@ const slides = [
     decoLeft: "",
     decoRight: ""
   },
-  
-  // 10. Core Features: Animation & Content
   {
     title: "Core Features: Animation & Content",
     content: (
@@ -345,86 +249,6 @@ const slides = [
     decoLeft: "",
     decoRight: ""
   },
-  
-  // 11. Feature Deep-Dive: Drawing Tools
-  {
-    title: "Feature Deep‑Dive: Drawing Tools",
-    content: (
-      <div className="animate-slideInRight">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Deep‑Dive</span>
-            <h3 className="text-blue-900 mb-2">Strokes, shapes, and smart guides</h3>
-            <ul className="subtle-list">
-              <li>Pen, arrow, dashed, curved paths; snap-to-grid.</li>
-              <li>Auto‑align, magnet guidelines, and symmetry helpers.</li>
-              <li>Reusable elements: cones, mannequins, ladders, goals.</li>
-              <li>Multi-select, grouping, and layers.</li>
-            </ul>
-          </div>
-          <div className="media"><img src="images/whiteboard_sketch.svg" alt="Drawing tools" /></div>
-        </div>
-      </div>
-    ),
-    bg: "bg-white",
-    overlay: "images/overlay_texture.svg",
-    decoLeft: "",
-    decoRight: ""
-  },
-  
-  // 12. Feature Deep-Dive: Animation
-  {
-    title: "Feature Deep‑Dive: Animation",
-    content: (
-      <div className="animate-slideInLeft">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Deep‑Dive</span>
-            <h3 className="text-blue-900 mb-2">Timelines, easing, and camera moves</h3>
-            <ul className="subtle-list">
-              <li>Keyframes for player and ball paths with easing presets.</li>
-              <li>Timeline with scrub, loop, and step-through controls.</li>
-              <li>Camera pans/zooms; spotlight; callouts.</li>
-              <li>Export to MP4/WebM and GIF with brand presets.</li>
-            </ul>
-          </div>
-          <div className="media"><img src="images/timeline_editor.svg" alt="Animation timeline" /></div>
-        </div>
-      </div>
-    ),
-    bg: "bg-green-50",
-    overlay: "images/overlay_texture.svg",
-    decoLeft: "",
-    decoRight: ""
-  },
-  
-  // 13. Feature Deep-Dive: Playbooks
-  {
-    title: "Feature Deep‑Dive: Playbooks",
-    content: (
-      <div className="animate-slideInRight">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Deep‑Dive</span>
-            <h3 className="text-blue-900 mb-2">Organize drills and sessions</h3>
-            <ul className="subtle-list">
-              <li>Collections of boards with tags, filters, and quick search.</li>
-              <li>Session mode to sequence drills with timers and notes.</li>
-              <li>Template gallery with sport presets.</li>
-              <li>Import/export playbooks via JSON.</li>
-            </ul>
-          </div>
-          <div className="media"><img src="images/kanban_board.svg" alt="Playbooks" /></div>
-        </div>
-      </div>
-    ),
-    bg: "bg-white",
-    overlay: "images/overlay_texture.svg",
-    decoLeft: "",
-    decoRight: ""
-  },
-  
-  // 14. Integrations & Enhancements
   {
     title: "Integrations & Enhancements",
     content: (
@@ -456,172 +280,6 @@ const slides = [
     decoLeft: "",
     decoRight: ""
   },
-
-  // ======== TECHNICAL ARCHITECTURE (5 slides) ========
-  // 15. Architecture Overview
-  {
-    title: "Architecture Overview",
-    content: (
-      <div className="animate-slideInLeft">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Architecture</span>
-            <h3 className="text-blue-900 mb-2">Client, services, and 3D module</h3>
-            <ul className="subtle-list">
-              <li>React Native app; optional Unity module for 3D.</li>
-              <li>Node.js services on AWS; CDN for assets and templates.</li>
-              <li>Auth, storage, and media pipeline for exports.</li>
-              <li>Telemetry and feature flags for safe rollout.</li>
-            </ul>
-          </div>
-          <div className="media"><img src="images/cloud_diagram.svg" alt="Architecture" /></div>
-        </div>
-      </div>
-    ),
-    bg: "bg-white",
-    overlay: "images/overlay_texture.svg",
-    decoLeft: "",
-    decoRight: ""
-  },
-  
-  // 16. Data Model & Sync
-  {
-    title: "Data Model & Sync",
-    content: (
-      <div className="animate-slideInRight">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Engineering</span>
-            <h3 className="text-blue-900 mb-2">Offline‑first, conflict‑aware</h3>
-            <ul className="subtle-list">
-              <li>Board schema: entities, paths, animations, notes.</li>
-              <li>Local persistence with background sync.</li>
-              <li>Conflict resolution strategy with last‑writer + merges.</li>
-              <li>Versioning for compatibility across releases.</li>
-            </ul>
-          </div>
-          <div className="media"><img src="images/db_diagram.svg" alt="Data model" /></div>
-        </div>
-      </div>
-    ),
-    bg: "bg-green-50",
-    overlay: "images/overlay_texture.svg",
-    decoLeft: "",
-    decoRight: ""
-  },
-  
-  // 17. Security & Privacy
-  {
-    title: "Security & Privacy",
-    content: (
-      <div className="animate-slideInLeft">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Security</span>
-            <h3 className="text-blue-900 mb-2">Protecting data and IP</h3>
-            <ul className="subtle-list">
-              <li>Encryption in transit and at rest; secure key handling.</li>
-              <li>Role-based access; private share links with expiry.</li>
-              <li>Audit logs and anomaly alerts.</li>
-              <li>GDPR compliance; DPIA as needed.</li>
-            </ul>
-          </div>
-          <div className="media"><img src="images/lock_security.svg" alt="Security" /></div>
-        </div>
-      </div>
-    ),
-    bg: "bg-white",
-    overlay: "images/overlay_texture.svg",
-    decoLeft: "",
-    decoRight: ""
-  },
-  
-  // 18. Accessibility & Localization
-  {
-    title: "Accessibility & Localization",
-    content: (
-      <div className="animate-slideInLeft">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Inclusivity</span>
-            <h3 className="text-blue-900 mb-2">WCAG and multilingual support</h3>
-            <ul className="subtle-list">
-              <li>Color contrast, focus states, and keyboard nav.</li>
-              <li>Alt text for exports; captions for video.</li>
-              <li>i18n framework; English and Croatian at launch.</li>
-              <li>RTL readiness and pluralization rules.</li>
-            </ul>
-          </div>
-          <div className="media"><img src="images/accessibility_design.svg" alt="Accessibility" /></div>
-        </div>
-      </div>
-    ),
-    bg: "bg-white",
-    overlay: "images/overlay_texture.svg",
-    decoLeft: "",
-    decoRight: ""
-  },
-  
-  // 19. Deployment & DevOps
-  {
-    title: "Deployment & DevOps",
-    content: (
-      <div className="animate-slideInRight">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Operations</span>
-            <h3 className="text-blue-900 mb-2">Build, release, and operate</h3>
-            <ul className="subtle-list">
-              <li>App store pipelines; code signing and provisioning.</li>
-              <li>Backend infra as code; blue/green rollouts.</li>
-              <li>Observability: logs, metrics, traces; alerting.</li>
-              <li>Backups and disaster recovery drills.</li>
-            </ul>
-          </div>
-          <div className="media"><img src="images/devops_cloud.svg" alt="DevOps" /></div>
-        </div>
-      </div>
-    ),
-    bg: "bg-green-50",
-    overlay: "https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1920&auto=format&fit=crop&sat=25",
-    decoLeft: "",
-    decoRight: ""
-  },
-
-  // ======== PROJECT EXECUTION (8 slides) ========
-  // 20. About Us
-  {
-    title: "About Us",
-    content: (
-      <div className="animate-slideInLeft">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Who we are</span>
-            <h3 className="text-blue-900 mb-2">Experienced, focused, collaborative</h3>
-            <div className="cards">
-              <div className="card"><h3>Replication Expertise</h3><p>Delivered complex app replicas incl. sports tools with animation & rich media.</p></div>
-              <div className="card"><h3>Cross‑platform</h3><p>React Native + Unity for 3D. CI/CD and performance budgets baked in.</p></div>
-              <div className="card"><h3>Partner Mindset</h3><p>Agile delivery with transparent comms and rapid iteration loops.</p></div>
-            </div>
-          </div>
-          <div>
-            <div className="media"><img src="images/team_collaboration.svg" alt="Our Team"/></div>
-            <div className="media-strip">
-              <img src="images/team_collaboration.svg" alt="Team work"/>
-              <img src="images/whiteboard_sketch.svg" alt="Design review"/>
-              <img src="images/code_screen.svg" alt="Engineering"/>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-    bg: "bg-green-50",
-    overlay: "images/overlay_texture.svg",
-    decoLeft: "",
-    decoRight: ""
-  },
-  
-  // 21. Development Methodology
   {
     title: "Development Methodology",
     content: (
@@ -652,8 +310,6 @@ const slides = [
     decoLeft: "",
     decoRight: ""
   },
-  
-  // 22. Team Structure
   {
     title: "Team Structure",
     content: (
@@ -686,8 +342,6 @@ const slides = [
     decoLeft: "",
     decoRight: ""
   },
-  
-  // 23. Timeline & Milestones
   {
     title: "Timeline & Milestones",
     content: (
@@ -719,38 +373,6 @@ const slides = [
     decoLeft: "",
     decoRight: ""
   },
-  
-  // 24. Roadmap Detail (Quarters)
-  {
-    title: "Roadmap Detail (Quarters)",
-    content: (
-      <div className="animate-slideInRight">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Roadmap</span>
-            <h3 className="text-blue-900 mb-2">Quarterly view</h3>
-            <ul className="subtle-list">
-              <li>Q1: Discovery, design system, drawing MVP.</li>
-              <li>Q2: Animation 2D, exports, playbooks alpha.</li>
-              <li>Q3: Integrations, security hardening, beta.</li>
-              <li>Q4: Perf, localization, launch and training.</li>
-            </ul>
-          </div>
-          <div className="cards">
-            <div className="card"><h3>Milestones</h3><p>Gate reviews and acceptance per quarter.</p></div>
-            <div className="card"><h3>Risks</h3><p>Spike complex areas early; maintain buffers.</p></div>
-            <div className="card"><h3>Outcomes</h3><p>Value delivered continuously.</p></div>
-          </div>
-        </div>
-      </div>
-    ),
-    bg: "bg-green-50",
-    overlay: "https://images.unsplash.com/photo-1508098682722-8e6e7b1521b1?q=80&w=1920&auto=format&fit=crop&sat=20",
-    decoLeft: "",
-    decoRight: ""
-  },
-  
-  // 25. Deliverables
   {
     title: "Deliverables",
     content: (
@@ -783,207 +405,6 @@ const slides = [
     decoLeft: "",
     decoRight: ""
   },
-  
-  // 26. Quality & Testing Strategy
-  {
-    title: "Quality & Testing Strategy",
-    content: (
-      <div className="animate-slideInRight">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Quality</span>
-            <h3 className="text-blue-900 mb-2">Automation and user testing</h3>
-            <ul className="subtle-list">
-              <li>Unit/integration tests; snapshot tests for rendering.</li>
-              <li>Device matrix for iOS/Android; desktop smoke tests.</li>
-              <li>Performance budgets and regression checks.</li>
-              <li>UAT with scripts and acceptance criteria per feature.</li>
-            </ul>
-          </div>
-          <div className="cards">
-            <div className="card"><h3>CI/CD</h3><p>PR checks, artifact builds, and release channels.</p></div>
-            <div className="card"><h3>Monitoring</h3><p>Crash reporting, RUM metrics, and SLO dashboards.</p></div>
-            <div className="card"><h3>Beta</h3><p>TestFlight/Internal App Sharing with feedback loops.</p></div>
-          </div>
-        </div>
-      </div>
-    ),
-    bg: "bg-green-50",
-    overlay: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=1920&auto=format&fit=crop&sat=20",
-    decoLeft: "",
-    decoRight: ""
-  },
-  
-  // 27. Risks & Mitigation
-  {
-    title: "Risks & Mitigation",
-    content: (
-      <div className="animate-slideInRight">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Delivery assurance</span>
-            <h3 className="text-blue-900 mb-2">Top risks & mitigations</h3>
-            <ul className="subtle-list">
-              <li>Scope change → lock after M1; formal change orders.</li>
-              <li>3D/tech hurdles → spike/prototype; senior oversight.</li>
-              <li>Feedback delays → scheduled reviews; auto reminders.</li>
-              <li>Distributed teams → async tools; CET alignment.</li>
-              <li>Contingency → 15% buffer on timeline & budget.</li>
-            </ul>
-          </div>
-          <div>
-            <div className="cards">
-              <div className="card"><h3>Tracking</h3><p>Risk log updated bi‑weekly; owners & actions.</p></div>
-              <div className="card"><h3>Quality</h3><p>CI gates, test automation, performance SLOs.</p></div>
-              <div className="card"><h3>Escalation</h3><p>Clear path to decision makers; SLA on responses.</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-    bg: "bg-white",
-    overlay: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1920&auto=format&fit=crop&sat=10",
-    decoLeft: "",
-    decoRight: ""
-  },
-
-  // ======== SUPPORT & GROWTH (5 slides) ========
-  // 28. Training & Change Management
-  {
-    title: "Training & Change Management",
-    content: (
-      <div className="animate-slideInLeft">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Adoption</span>
-            <h3 className="text-blue-900 mb-2">Enabling teams to succeed</h3>
-            <ul className="subtle-list">
-              <li>Guided onboarding; in‑app tips and templates.</li>
-              <li>Video tutorials and quick start guides.</li>
-              <li>Coach workshops and knowledge base.</li>
-              <li>Feedback channels and roadmap updates.</li>
-            </ul>
-          </div>
-          <div className="media"><img src="https://source.unsplash.com/1200x800/?training,workshop,coach" alt="Training" /></div>
-        </div>
-      </div>
-    ),
-    bg: "bg-white",
-    overlay: "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1920&auto=format&fit=crop&sat=20",
-    decoLeft: "",
-    decoRight: ""
-  },
-  
-  // 29. Support, SLA & Maintenance
-  {
-    title: "Support, SLA & Maintenance",
-    content: (
-      <div className="animate-slideInRight">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Operations</span>
-            <h3 className="text-blue-900 mb-2">Keeping the app reliable</h3>
-            <ul className="subtle-list">
-              <li>Support tiers; response and resolution targets.</li>
-              <li>Planned maintenance windows and notifications.</li>
-              <li>Bug triage and patch releases cadence.</li>
-              <li>Usage analytics to guide improvements.</li>
-            </ul>
-          </div>
-          <div className="cards">
-            <div className="card"><h3>SLA</h3><p>Uptime target and support hours aligned with CET.</p></div>
-            <div className="card"><h3>On‑call</h3><p>Escalation procedures and status pages.</p></div>
-            <div className="card"><h3>Ownership</h3><p>Clear RACI for app, backend, and content.</p></div>
-          </div>
-        </div>
-      </div>
-    ),
-    bg: "bg-green-50",
-    overlay: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1920&auto=format&fit=crop&sat=10",
-    decoLeft: "",
-    decoRight: ""
-  },
-  
-  // 30. Commercial Add-Ons
-  {
-    title: "Commercial Add‑Ons",
-    content: (
-      <div className="animate-slideInLeft">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Options</span>
-            <h3 className="text-blue-900 mb-2">Optional capabilities post‑launch</h3>
-            <ul className="subtle-list">
-              <li>Advanced AI tagging; computer vision assists.</li>
-              <li>Team management portal and roles.</li>
-              <li>Premium template packs; marketplace.</li>
-              <li>Custom branding and watermark automation.</li>
-            </ul>
-          </div>
-          <div className="media"><img src="https://source.unsplash.com/1200x800/?business,growth,options" alt="Add-ons" /></div>
-        </div>
-      </div>
-    ),
-    bg: "bg-white",
-    overlay: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=1920&auto=format&fit=crop&sat=25",
-    decoLeft: "",
-    decoRight: ""
-  },
-  
-  // 31. Assumptions & Dependencies
-  {
-    title: "Assumptions & Dependencies",
-    content: (
-      <div className="animate-slideInRight">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Plan</span>
-            <h3 className="text-blue-900 mb-2">What we rely on</h3>
-            <ul className="subtle-list">
-              <li>Stakeholder availability for reviews within 5 business days.</li>
-              <li>Access to target devices for testing and demos.</li>
-              <li>Timely content and branding assets for exports.</li>
-              <li>App store approvals per usual timelines.</li>
-            </ul>
-          </div>
-          <div className="media"><img src="https://source.unsplash.com/1200x800/?planning,calendar,schedule" alt="Assumptions" /></div>
-        </div>
-      </div>
-    ),
-    bg: "bg-green-50",
-    overlay: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=1920&auto=format&fit=crop&sat=20",
-    decoLeft: "",
-    decoRight: ""
-  },
-  
-  // 32. Case Study Inspiration
-  {
-    title: "Case Study Inspiration",
-    content: (
-      <div className="animate-slideInLeft">
-        <div className="grid-2">
-          <div>
-            <span className="badge">Proof</span>
-            <h3 className="text-blue-900 mb-2">Examples we will draw from</h3>
-            <ul className="subtle-list">
-              <li>High‑performing sports analysis apps with fluid UIs.</li>
-              <li>Media suites with crisp export pipelines.</li>
-              <li>Education apps with strong onboarding and templates.</li>
-              <li>Design tools with powerful vector/animation engines.</li>
-            </ul>
-          </div>
-          <div className="media"><img src="https://source.unsplash.com/1200x800/?case,study,success" alt="Case studies" /></div>
-        </div>
-      </div>
-    ),
-    bg: "bg-white",
-    overlay: "https://images.unsplash.com/photo-1518091043644-391557a77304?q=80&w=1920&auto=format&fit=crop&sat=25",
-    decoLeft: "",
-    decoRight: ""
-  },
-
-  // ======== COMMERCIAL & CLOSING (4 slides) ========
-  // 33. Pricing & Payment Terms
   {
     title: "Pricing & Payment Terms",
     content: (
@@ -1014,8 +435,6 @@ const slides = [
     decoLeft: "",
     decoRight: ""
   },
-  
-  // 34. Terms & Conditions
   {
     title: "Terms & Conditions",
     content: (
@@ -1049,8 +468,37 @@ const slides = [
     decoLeft: "",
     decoRight: ""
   },
-  
-  // 35. Next Steps
+  {
+    title: "Risks & Mitigation",
+    content: (
+      <div className="animate-slideInRight">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Delivery assurance</span>
+            <h3 className="text-blue-900 mb-2">Top risks & mitigations</h3>
+            <ul className="subtle-list">
+              <li>Scope change → lock after M1; formal change orders.</li>
+              <li>3D/tech hurdles → spike/prototype; senior oversight.</li>
+              <li>Feedback delays → scheduled reviews; auto reminders.</li>
+              <li>Distributed teams → async tools; CET alignment.</li>
+              <li>Contingency → 15% buffer on timeline & budget.</li>
+            </ul>
+          </div>
+          <div>
+            <div className="cards">
+              <div className="card"><h3>Tracking</h3><p>Risk log updated bi‑weekly; owners & actions.</p></div>
+              <div className="card"><h3>Quality</h3><p>CI gates, test automation, performance SLOs.</p></div>
+              <div className="card"><h3>Escalation</h3><p>Clear path to decision makers; SLA on responses.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
+    bg: "bg-white",
+    overlay: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1920&auto=format&fit=crop&sat=10",
+    decoLeft: "",
+    decoRight: ""
+  },
   {
     title: "Next Steps",
     content: (
@@ -1083,8 +531,487 @@ const slides = [
     decoLeft: "",
     decoRight: ""
   },
-  
-  // 36. Closing & Contacts
+  {
+    title: "About Us",
+    content: (
+      <div className="animate-slideInLeft">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Who we are</span>
+            <h3 className="text-blue-900 mb-2">Experienced, focused, collaborative</h3>
+            <div className="cards">
+              <div className="card"><h3>Replication Expertise</h3><p>Delivered complex app replicas incl. sports tools with animation & rich media.</p></div>
+              <div className="card"><h3>Cross‑platform</h3><p>React Native + Unity for 3D. CI/CD and performance budgets baked in.</p></div>
+              <div className="card"><h3>Partner Mindset</h3><p>Agile delivery with transparent comms and rapid iteration loops.</p></div>
+            </div>
+          </div>
+          <div>
+            <div className="media"><img src="images/team_collaboration.svg" alt="Our Team"/></div>
+            <div className="media-strip">
+              <img src="images/team_collaboration.svg" alt="Team work"/>
+              <img src="images/whiteboard_sketch.svg" alt="Design review"/>
+              <img src="images/code_screen.svg" alt="Engineering"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
+    bg: "bg-green-50",
+    overlay: "images/overlay_texture.svg",
+    decoLeft: "",
+    decoRight: ""
+  },
+  {
+    title: "Objectives & Success Criteria",
+    content: (
+      <div className="animate-slideInLeft">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Goals</span>
+            <h3 className="text-blue-900 mb-2">What success looks like in measurable terms</h3>
+            <ul className="subtle-list">
+              <li>TTR (time-to-render) under 2s on mid-tier Android and iOS.</li>
+              <li>90%+ coach satisfaction in UAT surveys; CSAT {'>'} 4.5/5.</li>
+              <li>Share flow under 3 taps; export in {'<'} 10s for 1080p videos.</li>
+              <li>Localization enabled; initial English and Croatian support.</li>
+            </ul>
+          </div>
+          <div className="cards">
+            <div className="card"><h3>KPIs</h3><p>Adoption, session length, export count, team shares.</p></div>
+            <div className="card"><h3>NFRs</h3><p>Accessibility, performance, reliability, security.</p></div>
+            <div className="card"><h3>Delight</h3><p>Smooth animations; beautiful exports; easy templates.</p></div>
+          </div>
+        </div>
+      </div>
+    ),
+    bg: "bg-green-50",
+    overlay: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=1920&auto=format&fit=crop&sat=20",
+    decoLeft: "",
+    decoRight: ""
+  },
+  {
+    title: "User Personas",
+    content: (
+      <div className="animate-slideInRight">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Users</span>
+            <h3 className="text-blue-900 mb-2">Who we’re building for</h3>
+            <div className="cards">
+              <div className="card"><h3>Head Coach</h3><p>Creates drills; needs quick drawing and sharing with staff.</p></div>
+              <div className="card"><h3>Analyst</h3><p>Annotates videos; exports sequences; presents insights.</p></div>
+              <div className="card"><h3>Journalist</h3><p>Produces clean visuals and animations for articles.</p></div>
+            </div>
+          </div>
+          <div className="media"><img src="images/team_collaboration.svg" alt="Personas" /></div>
+        </div>
+      </div>
+    ),
+    bg: "bg-white",
+    overlay: "images/overlay_texture.svg",
+    decoLeft: "",
+    decoRight: ""
+  },
+  {
+    title: "Competitive Landscape",
+    content: (
+      <div className="animate-slideInLeft">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Market</span>
+            <h3 className="text-blue-900 mb-2">How we differentiate</h3>
+            <ul className="subtle-list">
+              <li>Parity with TacticalPad core + smoother UX and collaboration.</li>
+              <li>2D-first with optional 3D via Unity module.</li>
+              <li>Better exports (brand presets, watermarks, social crops).</li>
+              <li>Pluggable data model to support multiple sports.</li>
+            </ul>
+          </div>
+          <div className="cards">
+            <div className="card"><h3>Advantage</h3><p>Performance, share flows, and multi-sport templates.</p></div>
+            <div className="card"><h3>Focus</h3><p>Coach workflows, analyst tooling, and team collaboration.</p></div>
+            <div className="card"><h3>Extensibility</h3><p>Open integration points; theming; localization.</p></div>
+          </div>
+        </div>
+      </div>
+    ),
+    bg: "bg-green-50",
+    overlay: "https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1920&auto=format&fit=crop&sat=25",
+    decoLeft: "",
+    decoRight: ""
+  },
+  {
+    title: "Feature Deep‑Dive: Drawing Tools",
+    content: (
+      <div className="animate-slideInRight">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Deep‑Dive</span>
+            <h3 className="text-blue-900 mb-2">Strokes, shapes, and smart guides</h3>
+            <ul className="subtle-list">
+              <li>Pen, arrow, dashed, curved paths; snap-to-grid.</li>
+              <li>Auto‑align, magnet guidelines, and symmetry helpers.</li>
+              <li>Reusable elements: cones, mannequins, ladders, goals.</li>
+              <li>Multi-select, grouping, and layers.</li>
+            </ul>
+          </div>
+          <div className="media"><img src="images/whiteboard_sketch.svg" alt="Drawing tools" /></div>
+        </div>
+      </div>
+    ),
+    bg: "bg-white",
+    overlay: "images/overlay_texture.svg",
+    decoLeft: "",
+    decoRight: ""
+  },
+  {
+    title: "Feature Deep‑Dive: Animation",
+    content: (
+      <div className="animate-slideInLeft">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Deep‑Dive</span>
+            <h3 className="text-blue-900 mb-2">Timelines, easing, and camera moves</h3>
+            <ul className="subtle-list">
+              <li>Keyframes for player and ball paths with easing presets.</li>
+              <li>Timeline with scrub, loop, and step-through controls.</li>
+              <li>Camera pans/zooms; spotlight; callouts.</li>
+              <li>Export to MP4/WebM and GIF with brand presets.</li>
+            </ul>
+          </div>
+          <div className="media"><img src="images/timeline_editor.svg" alt="Animation timeline" /></div>
+        </div>
+      </div>
+    ),
+    bg: "bg-green-50",
+    overlay: "images/overlay_texture.svg",
+    decoLeft: "",
+    decoRight: ""
+  },
+  {
+    title: "Feature Deep‑Dive: Playbooks",
+    content: (
+      <div className="animate-slideInRight">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Deep‑Dive</span>
+            <h3 className="text-blue-900 mb-2">Organize drills and sessions</h3>
+            <ul className="subtle-list">
+              <li>Collections of boards with tags, filters, and quick search.</li>
+              <li>Session mode to sequence drills with timers and notes.</li>
+              <li>Template gallery with sport presets.</li>
+              <li>Import/export playbooks via JSON.</li>
+            </ul>
+          </div>
+          <div className="media"><img src="images/kanban_board.svg" alt="Playbooks" /></div>
+        </div>
+      </div>
+    ),
+    bg: "bg-white",
+    overlay: "images/overlay_texture.svg",
+    decoLeft: "",
+    decoRight: ""
+  },
+  {
+    title: "Architecture Overview",
+    content: (
+      <div className="animate-slideInLeft">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Architecture</span>
+            <h3 className="text-blue-900 mb-2">Client, services, and 3D module</h3>
+            <ul className="subtle-list">
+              <li>React Native app; optional Unity module for 3D.</li>
+              <li>Node.js services on AWS; CDN for assets and templates.</li>
+              <li>Auth, storage, and media pipeline for exports.</li>
+              <li>Telemetry and feature flags for safe rollout.</li>
+            </ul>
+          </div>
+          <div className="media"><img src="images/cloud_diagram.svg" alt="Architecture" /></div>
+        </div>
+      </div>
+    ),
+    bg: "bg-white",
+    overlay: "images/overlay_texture.svg",
+    decoLeft: "",
+    decoRight: ""
+  },
+  {
+    title: "Data Model & Sync",
+    content: (
+      <div className="animate-slideInRight">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Engineering</span>
+            <h3 className="text-blue-900 mb-2">Offline‑first, conflict‑aware</h3>
+            <ul className="subtle-list">
+              <li>Board schema: entities, paths, animations, notes.</li>
+              <li>Local persistence with background sync.</li>
+              <li>Conflict resolution strategy with last‑writer + merges.</li>
+              <li>Versioning for compatibility across releases.</li>
+            </ul>
+          </div>
+          <div className="media"><img src="images/db_diagram.svg" alt="Data model" /></div>
+        </div>
+      </div>
+    ),
+    bg: "bg-green-50",
+    overlay: "images/overlay_texture.svg",
+    decoLeft: "",
+    decoRight: ""
+  },
+  {
+    title: "Security & Privacy",
+    content: (
+      <div className="animate-slideInLeft">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Security</span>
+            <h3 className="text-blue-900 mb-2">Protecting data and IP</h3>
+            <ul className="subtle-list">
+              <li>Encryption in transit and at rest; secure key handling.</li>
+              <li>Role-based access; private share links with expiry.</li>
+              <li>Audit logs and anomaly alerts.</li>
+              <li>GDPR compliance; DPIA as needed.</li>
+            </ul>
+          </div>
+          <div className="media"><img src="images/lock_security.svg" alt="Security" /></div>
+        </div>
+      </div>
+    ),
+    bg: "bg-white",
+    overlay: "images/overlay_texture.svg",
+    decoLeft: "",
+    decoRight: ""
+  },
+  {
+    title: "Quality & Testing Strategy",
+    content: (
+      <div className="animate-slideInRight">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Quality</span>
+            <h3 className="text-blue-900 mb-2">Automation and user testing</h3>
+            <ul className="subtle-list">
+              <li>Unit/integration tests; snapshot tests for rendering.</li>
+              <li>Device matrix for iOS/Android; desktop smoke tests.</li>
+              <li>Performance budgets and regression checks.</li>
+              <li>UAT with scripts and acceptance criteria per feature.</li>
+            </ul>
+          </div>
+          <div className="cards">
+            <div className="card"><h3>CI/CD</h3><p>PR checks, artifact builds, and release channels.</p></div>
+            <div className="card"><h3>Monitoring</h3><p>Crash reporting, RUM metrics, and SLO dashboards.</p></div>
+            <div className="card"><h3>Beta</h3><p>TestFlight/Internal App Sharing with feedback loops.</p></div>
+          </div>
+        </div>
+      </div>
+    ),
+    bg: "bg-green-50",
+    overlay: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=1920&auto=format&fit=crop&sat=20",
+    decoLeft: "",
+    decoRight: ""
+  },
+  {
+    title: "Accessibility & Localization",
+    content: (
+      <div className="animate-slideInLeft">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Inclusivity</span>
+            <h3 className="text-blue-900 mb-2">WCAG and multilingual support</h3>
+            <ul className="subtle-list">
+              <li>Color contrast, focus states, and keyboard nav.</li>
+              <li>Alt text for exports; captions for video.</li>
+              <li>i18n framework; English and Croatian at launch.</li>
+              <li>RTL readiness and pluralization rules.</li>
+            </ul>
+          </div>
+          <div className="media"><img src="images/accessibility_design.svg" alt="Accessibility" /></div>
+        </div>
+      </div>
+    ),
+    bg: "bg-white",
+    overlay: "images/overlay_texture.svg",
+    decoLeft: "",
+    decoRight: ""
+  },
+  {
+    title: "Deployment & DevOps",
+    content: (
+      <div className="animate-slideInRight">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Operations</span>
+            <h3 className="text-blue-900 mb-2">Build, release, and operate</h3>
+            <ul className="subtle-list">
+              <li>App store pipelines; code signing and provisioning.</li>
+              <li>Backend infra as code; blue/green rollouts.</li>
+              <li>Observability: logs, metrics, traces; alerting.</li>
+              <li>Backups and disaster recovery drills.</li>
+            </ul>
+          </div>
+          <div className="media"><img src="images/devops_cloud.svg" alt="DevOps" /></div>
+        </div>
+      </div>
+    ),
+    bg: "bg-green-50",
+    overlay: "https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1920&auto=format&fit=crop&sat=25",
+    decoLeft: "",
+    decoRight: ""
+  },
+  {
+    title: "Training & Change Management",
+    content: (
+      <div className="animate-slideInLeft">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Adoption</span>
+            <h3 className="text-blue-900 mb-2">Enabling teams to succeed</h3>
+            <ul className="subtle-list">
+              <li>Guided onboarding; in‑app tips and templates.</li>
+              <li>Video tutorials and quick start guides.</li>
+              <li>Coach workshops and knowledge base.</li>
+              <li>Feedback channels and roadmap updates.</li>
+            </ul>
+          </div>
+          <div className="media"><img src="https://source.unsplash.com/1200x800/?training,workshop,coach" alt="Training" /></div>
+        </div>
+      </div>
+    ),
+    bg: "bg-white",
+    overlay: "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1920&auto=format&fit=crop&sat=20",
+    decoLeft: "",
+    decoRight: ""
+  },
+  {
+    title: "Support, SLA & Maintenance",
+    content: (
+      <div className="animate-slideInRight">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Operations</span>
+            <h3 className="text-blue-900 mb-2">Keeping the app reliable</h3>
+            <ul className="subtle-list">
+              <li>Support tiers; response and resolution targets.</li>
+              <li>Planned maintenance windows and notifications.</li>
+              <li>Bug triage and patch releases cadence.</li>
+              <li>Usage analytics to guide improvements.</li>
+            </ul>
+          </div>
+          <div className="cards">
+            <div className="card"><h3>SLA</h3><p>Uptime target and support hours aligned with CET.</p></div>
+            <div className="card"><h3>On‑call</h3><p>Escalation procedures and status pages.</p></div>
+            <div className="card"><h3>Ownership</h3><p>Clear RACI for app, backend, and content.</p></div>
+          </div>
+        </div>
+      </div>
+    ),
+    bg: "bg-green-50",
+    overlay: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1920&auto=format&fit=crop&sat=10",
+    decoLeft: "",
+    decoRight: ""
+  },
+  {
+    title: "Commercial Add‑Ons",
+    content: (
+      <div className="animate-slideInLeft">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Options</span>
+            <h3 className="text-blue-900 mb-2">Optional capabilities post‑launch</h3>
+            <ul className="subtle-list">
+              <li>Advanced AI tagging; computer vision assists.</li>
+              <li>Team management portal and roles.</li>
+              <li>Premium template packs; marketplace.</li>
+              <li>Custom branding and watermark automation.</li>
+            </ul>
+          </div>
+          <div className="media"><img src="https://source.unsplash.com/1200x800/?business,growth,options" alt="Add-ons" /></div>
+        </div>
+      </div>
+    ),
+    bg: "bg-white",
+    overlay: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=1920&auto=format&fit=crop&sat=25",
+    decoLeft: "",
+    decoRight: ""
+  },
+  {
+    title: "Assumptions & Dependencies",
+    content: (
+      <div className="animate-slideInRight">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Plan</span>
+            <h3 className="text-blue-900 mb-2">What we rely on</h3>
+            <ul className="subtle-list">
+              <li>Stakeholder availability for reviews within 5 business days.</li>
+              <li>Access to target devices for testing and demos.</li>
+              <li>Timely content and branding assets for exports.</li>
+              <li>App store approvals per usual timelines.</li>
+            </ul>
+          </div>
+          <div className="media"><img src="https://source.unsplash.com/1200x800/?planning,calendar,schedule" alt="Assumptions" /></div>
+        </div>
+      </div>
+    ),
+    bg: "bg-green-50",
+    overlay: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?q=80&w=1920&auto=format&fit=crop&sat=20",
+    decoLeft: "",
+    decoRight: ""
+  },
+  {
+    title: "Case Study Inspiration",
+    content: (
+      <div className="animate-slideInLeft">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Proof</span>
+            <h3 className="text-blue-900 mb-2">Examples we will draw from</h3>
+            <ul className="subtle-list">
+              <li>High‑performing sports analysis apps with fluid UIs.</li>
+              <li>Media suites with crisp export pipelines.</li>
+              <li>Education apps with strong onboarding and templates.</li>
+              <li>Design tools with powerful vector/animation engines.</li>
+            </ul>
+          </div>
+          <div className="media"><img src="https://source.unsplash.com/1200x800/?case,study,success" alt="Case studies" /></div>
+        </div>
+      </div>
+    ),
+    bg: "bg-white",
+    overlay: "https://images.unsplash.com/photo-1518091043644-391557a77304?q=80&w=1920&auto=format&fit=crop&sat=25",
+    decoLeft: "",
+    decoRight: ""
+  },
+  {
+    title: "Roadmap Detail (Quarters)",
+    content: (
+      <div className="animate-slideInRight">
+        <div className="grid-2">
+          <div>
+            <span className="badge">Roadmap</span>
+            <h3 className="text-blue-900 mb-2">Quarterly view</h3>
+            <ul className="subtle-list">
+              <li>Q1: Discovery, design system, drawing MVP.</li>
+              <li>Q2: Animation 2D, exports, playbooks alpha.</li>
+              <li>Q3: Integrations, security hardening, beta.</li>
+              <li>Q4: Perf, localization, launch and training.</li>
+            </ul>
+          </div>
+          <div className="cards">
+            <div className="card"><h3>Milestones</h3><p>Gate reviews and acceptance per quarter.</p></div>
+            <div className="card"><h3>Risks</h3><p>Spike complex areas early; maintain buffers.</p></div>
+            <div className="card"><h3>Outcomes</h3><p>Value delivered continuously.</p></div>
+          </div>
+        </div>
+      </div>
+    ),
+    bg: "bg-green-50",
+    overlay: "https://images.unsplash.com/photo-1508098682722-8e6e7b1521b1?q=80&w=1920&auto=format&fit=crop&sat=20",
+    decoLeft: "",
+    decoRight: ""
+  },
   {
     title: "Closing & Contacts",
     content: (
@@ -1092,11 +1019,11 @@ const slides = [
         <div className="grid-2">
           <div>
             <span className="badge">Wrap‑up</span>
-            <h3 className="text-blue-900 mb-2">We're excited to partner</h3>
+            <h3 className="text-blue-900 mb-2">We’re excited to partner</h3>
             <ul className="subtle-list">
               <li>We can deliver a polished replica with thoughtful improvements.</li>
               <li>Clear plan, experienced team, and reliable delivery practices.</li>
-              <li>Let's align scope and get started.</li>
+              <li>Let’s align scope and get started.</li>
             </ul>
             <p className="text-xl text-gray-700 mt-4">Contact: [Your Email/Phone]</p>
           </div>
@@ -1110,7 +1037,6 @@ const slides = [
     decoRight: ""
   }
 ];
-
 
 // Groups for splitting into multiple pages
 // Not currently used - using all slides directly
