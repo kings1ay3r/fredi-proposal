@@ -1,0 +1,19 @@
+{
+  "name": "tactical-proposal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Multi-page React (UMD + Babel in-browser) proposal site with simple dev server",
+  "scripts": {
+    "dev": "live-server --port=5173 --watch=./ --no-browser",
+    "start": "npm run dev",
+    "serve": "http-server -p 5173 -c-1 ."
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "packageManager": "yarn@4.9.1+sha512.f95ce356460e05be48d66401c1ae64ef84d163dd689964962c6888a9810865e39097a5e9de748876c2e0bf89b232d583c33982773e9903ae7a76257270986538"
+}
