@@ -300,121 +300,95 @@ const slides = [
     decoRight: ""
   },
   
-  // 4. Objectives & Success Criteria - Redesigned
+  // 4. Objectives & Success Criteria - Enhanced with Charts
   {
     title: "Objectives & Success Criteria",
     content: (
-      <div className="animate-fadeInUp">
+      <div className="animate-slideInRightFade">
         <div className="stagger-animation">
-          <span className="badge-gradient">Goals & Metrics</span>
-          <h3 className="heading-lg text-gradient mt-4">Defining Success Together</h3>
+          <span className="badge-outline">Goals & Metrics</span>
+          <h3 className="heading-lg text-gradient mt-4">Success in Measurable Terms</h3>
           
-          {/* Main Objectives Grid */}
-          <div className="grid grid-cols-3 gap-6 mt-8">
-            {[
-              {
-                icon: "target",
-                title: "Primary Objectives",
-                items: [
-                  "Feature parity with TacticalPad",
-                  "Mobile-first responsive design",
-                  "Real-time collaboration",
-                  "Cloud sync across devices"
-                ],
-                color: "#667eea"
-              },
-              {
-                icon: "trending-up",
-                title: "Success Metrics",
-                items: [
-                  "10,000+ active users in Year 1",
-                  "4.5+ App Store rating",
-                  "90% user retention rate",
-                  "< 2s load time on mobile"
-                ],
-                color: "#764ba2"
-              },
-              {
-                icon: "award",
-                title: "Quality Standards",
-                items: [
-                  "WCAG 2.1 AA compliance",
-                  "99.9% uptime SLA",
-                  "Zero critical bugs at launch",
-                  "Multi-language support"
-                ],
-                color: "#84fab0"
-              }
-            ].map((objective, i) => (
-              <div key={i} className="modern-card hover-lift" style={{animationDelay: `${i * 0.15}s`}}>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="icon-circle" style={{background: `linear-gradient(135deg, ${objective.color}22, ${objective.color}44)`}}>
-                    <Icon name={objective.icon} size={24} color={objective.color} />
-                  </div>
-                  <h4 className="font-bold text-lg">{objective.title}</h4>
-                </div>
-                <ul className="space-y-2">
-                  {objective.items.map((item, j) => (
-                    <li key={j} className="flex items-start gap-2 text-sm text-gray-700">
-                      <Icon name="check" size={16} color={objective.color} className="mt-0.5" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          
-          {/* Performance Metrics Dashboard */}
-          <div className="modern-card mt-8">
-            <h4 className="font-bold text-lg mb-6 text-center">Performance Benchmarks</h4>
-            <div className="grid grid-cols-4 gap-4">
-              {[
-                { label: "Page Load", target: "< 2s", current: 85, icon: "zap" },
-                { label: "Export Time", target: "< 10s", current: 92, icon: "download" },
-                { label: "API Response", target: "< 200ms", current: 95, icon: "activity" },
-                { label: "Mobile Score", target: "95+", current: 88, icon: "smartphone" }
-              ].map((metric, i) => (
-                <div key={i} className="text-center" style={{animationDelay: `${i * 0.1}s`}}>
-                  <Icon name={metric.icon} size={24} color="#667eea" className="mx-auto mb-2" />
-                  <div className="mb-2">
-                    <ProgressCircle percentage={metric.current} size={80} color="#667eea" />
-                  </div>
-                  <p className="text-sm font-semibold">{metric.label}</p>
-                  <p className="text-xs text-gray-600">{metric.target}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          {/* Success Criteria Cards */}
-          <div className="grid grid-cols-2 gap-6 mt-6">
-            <div className="feature-card-modern gradient-primary text-white">
-              <div className="flex items-center justify-between">
+          <div className="grid grid-cols-2 gap-6 mt-8">
+            {/* Performance Metrics */}
+            <div className="modern-card">
+              <h4 className="font-semibold text-lg mb-4 flex items-center gap-2">
+                <Icon name="gauge" size={20} color="#667eea" />
+                Performance Targets
+              </h4>
+              <div className="space-y-4">
                 <div>
-                  <Icon name="users" size={32} color="white" className="mb-2" />
-                  <h5 className="font-bold text-lg">User Satisfaction</h5>
-                  <p className="text-sm opacity-90 mt-1">CSAT Score &gt; 4.5/5.0</p>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-sm">Time to Render</span>
+                    <span className="text-sm font-semibold">&lt;2s</span>
+                  </div>
+                  <div className="progress">
+                    <div className="progress-bar" style={{width: '85%'}}></div>
+                  </div>
                 </div>
-                <div className="text-4xl font-bold">90%</div>
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-sm">Export Speed (1080p)</span>
+                    <span className="text-sm font-semibold">&lt;10s</span>
+                  </div>
+                  <div className="progress">
+                    <div className="progress-bar" style={{width: '92%'}}></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-sm">Share Flow</span>
+                    <span className="text-sm font-semibold">&lt;3 taps</span>
+                  </div>
+                  <div className="progress">
+                    <div className="progress-bar" style={{width: '100%'}}></div>
+                  </div>
+                </div>
               </div>
             </div>
             
-            <div className="feature-card-modern gradient-success text-white">
-              <div className="flex items-center justify-between">
+            {/* Satisfaction Metrics */}
+            <div className="modern-card">
+              <h4 className="font-semibold text-lg mb-4 flex items-center gap-2">
+                <Icon name="heart" size={20} color="#e73c7e" />
+                Satisfaction Metrics
+              </h4>
+              <div className="flex justify-around items-center">
+                <ProgressCircle percentage={90} size={100} color="#e73c7e" />
                 <div>
-                  <Icon name="globe" size={32} color="white" className="mb-2" />
-                  <h5 className="font-bold text-lg">Global Reach</h5>
-                  <p className="text-sm opacity-90 mt-1">15+ Sports, 10+ Languages</p>
+                  <div className="stat-number text-3xl">4.5<span className="text-lg">/5</span></div>
+                  <p className="text-sm text-gray-600">Target CSAT</p>
                 </div>
-                <div className="text-4xl font-bold">25+</div>
               </div>
             </div>
+          </div>
+          
+          <div className="grid grid-cols-3 gap-4 mt-6">
+            <div className="glass-card p-4 rounded-xl text-center hover-lift">
+              <Icon name="check-circle" size={32} color="#43e97b" className="mx-auto mb-2" />
+              <h5 className="font-semibold">KPIs</h5>
+              <p className="text-xs text-gray-600 mt-1">Adoption, session length, export count</p>
+            </div>
+            <div className="glass-card p-4 rounded-xl text-center hover-lift">
+              <Icon name="shield-check" size={32} color="#4facfe" className="mx-auto mb-2" />
+              <h5 className="font-semibold">NFRs</h5>
+              <p className="text-xs text-gray-600 mt-1">Accessibility, performance, security</p>
+            </div>
+            <div className="glass-card p-4 rounded-xl text-center hover-lift">
+              <Icon name="star" size={32} color="#f093fb" className="mx-auto mb-2" />
+              <h5 className="font-semibold">Delight</h5>
+              <p className="text-xs text-gray-600 mt-1">Smooth animations, beautiful exports</p>
+            </div>
+          </div>
+          
+          <div className="feature-card-modern mt-6 text-center gradient-success">
+            <Icon name="globe-2" size={24} color="#059669" className="mx-auto mb-2" />
+            <p className="font-semibold">Localization Ready: English & Croatian at Launch</p>
           </div>
         </div>
       </div>
     ),
-    bg: "bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50",
+    bg: "bg-gradient-to-bl from-green-50 via-white to-purple-50",
     overlay: "",
     decoLeft: "",
     decoRight: ""
@@ -734,146 +708,83 @@ const slides = [
     decoRight: ""
   },
 
-  // 8. Scope of Work - Redesigned
+  // 8. Scope of Work
   {
     title: "Scope of Work",
     content: (
-      <div className="animate-fadeInUp">
-        <div className="stagger-animation">
-          <span className="badge-gradient">Project Deliverables</span>
-          <h3 className="heading-lg text-gradient mt-4">Comprehensive Development Package</h3>
-          
-          {/* Main Scope Grid */}
-          <div className="grid grid-cols-4 gap-4 mt-8">
-            {[
-              {
-                phase: "Core Platform",
-                icon: "layers",
-                percentage: 30,
-                items: [
-                  "Cross-platform application",
-                  "Drawing & annotation tools",
-                  "Animation engine",
-                  "Export system (MP4, GIF, PNG)"
-                ],
-                color: "#667eea"
-              },
-              {
-                phase: "Content Library",
-                icon: "database",
-                percentage: 25,
-                items: [
-                  "15+ sport templates",
-                  "500+ drill presets",
-                  "Formation library",
-                  "Tactical patterns"
-                ],
-                color: "#764ba2"
-              },
-              {
-                phase: "Collaboration",
-                icon: "users",
-                percentage: 25,
-                items: [
-                  "Real-time team sharing",
-                  "Cloud synchronization",
-                  "Comments & feedback",
-                  "Version history"
-                ],
-                color: "#84fab0"
-              },
-              {
-                phase: "Analytics & Admin",
-                icon: "bar-chart-2",
-                percentage: 20,
-                items: [
-                  "Usage analytics",
-                  "Performance metrics",
-                  "Admin dashboard",
-                  "User management"
-                ],
-                color: "#8fd3f4"
-              }
-            ].map((scope, i) => (
-              <div key={i} className="modern-card hover-lift" style={{animationDelay: `${i * 0.1}s`}}>
-                <div className="text-center mb-4">
-                  <div className="icon-circle mx-auto mb-3" style={{background: `linear-gradient(135deg, ${scope.color}22, ${scope.color}44)`}}>
-                    <Icon name={scope.icon} size={24} color={scope.color} />
+      <div className="animate-fadeInScale">
+        <div className="grid-2">
+          <div className="stagger-animation">
+            <span className="badge-outline">Project Scope</span>
+            <h3 className="heading-lg text-gradient mt-4">What We'll Deliver</h3>
+            
+            <div className="space-y-4 mt-6">
+              {[
+                { phase: "Core Platform", items: ["Drawing tools", "Animation engine", "Export system"], color: "#667eea" },
+                { phase: "Content Library", items: ["Sport templates", "Drill library", "Formation presets"], color: "#764ba2" },
+                { phase: "Collaboration", items: ["Team sharing", "Cloud sync", "Comments"], color: "#84fab0" },
+                { phase: "Analytics", items: ["Usage metrics", "Performance insights", "Reports"], color: "#8fd3f4" }
+              ].map((scope, index) => (
+                <div key={index} className="feature-card-modern" style={{animationDelay: `${index * 0.1}s`}}>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-full rounded" style={{backgroundColor: scope.color}}></div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold mb-2">{scope.phase}</h4>
+                      <div className="flex gap-2 flex-wrap">
+                        {scope.items.map((item, i) => (
+                          <span key={i} className="text-xs px-2 py-1 bg-gray-100 rounded-full">
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <h4 className="font-bold">{scope.phase}</h4>
-                  <p className="text-2xl font-bold mt-2" style={{color: scope.color}}>{scope.percentage}%</p>
-                  <p className="text-xs text-gray-600">of project scope</p>
                 </div>
-                <ul className="space-y-2">
-                  {scope.items.map((item, j) => (
-                    <li key={j} className="text-xs text-gray-700 flex items-start gap-1">
-                      <Icon name="check" size={12} color={scope.color} className="mt-0.5" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
           
-          {/* Project Phases Timeline */}
-          <div className="modern-card mt-8">
-            <h4 className="font-bold text-lg mb-6 text-center">Development Roadmap</h4>
-            <div className="relative">
-              <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 -translate-y-1/2"></div>
-              <div className="grid grid-cols-7 gap-4 relative">
+          <div>
+            <div className="modern-card">
+              <h4 className="font-semibold text-lg mb-4">Delivery Timeline</h4>
+              <div className="relative">
+                <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 to-pink-500"></div>
                 {[
-                  { month: "Month 1", phase: "Discovery", icon: "search", status: "complete" },
-                  { month: "Month 2", phase: "Design", icon: "palette", status: "complete" },
-                  { month: "Month 3-4", phase: "Core Dev", icon: "code", status: "in-progress" },
-                  { month: "Month 5", phase: "Features", icon: "package", status: "upcoming" },
-                  { month: "Month 6", phase: "Testing", icon: "check-circle", status: "upcoming" },
-                  { month: "Month 7", phase: "Polish", icon: "sparkles", status: "upcoming" },
-                  { month: "Launch", phase: "Deploy", icon: "rocket", status: "upcoming" }
-                ].map((phase, i) => (
-                  <div key={i} className="text-center" style={{animationDelay: `${i * 0.1}s`}}>
-                    <div className={`w-12 h-12 rounded-full mx-auto mb-2 flex items-center justify-center ${
-                      phase.status === 'complete' ? 'bg-green-100 border-2 border-green-500' :
-                      phase.status === 'in-progress' ? 'bg-blue-100 border-2 border-blue-500 animate-pulse' :
-                      'bg-gray-100 border-2 border-gray-300'
-                    }`}>
-                      <Icon name={phase.icon} size={20} color={
-                        phase.status === 'complete' ? '#10b981' :
-                        phase.status === 'in-progress' ? '#3b82f6' : '#9ca3af'
-                      } />
+                  { month: "Month 1-2", task: "Foundation & Core", progress: 100 },
+                  { month: "Month 3-4", task: "Features & UI", progress: 75 },
+                  { month: "Month 5-6", task: "Testing & Polish", progress: 50 },
+                  { month: "Month 7", task: "Launch & Deploy", progress: 25 }
+                ].map((timeline, i) => (
+                  <div key={i} className="relative pl-10 pb-6">
+                    <div className="absolute left-2 w-4 h-4 bg-white border-2 border-purple-500 rounded-full"></div>
+                    <h5 className="font-semibold text-sm">{timeline.month}</h5>
+                    <p className="text-xs text-gray-600 mt-1">{timeline.task}</p>
+                    <div className="mt-2 h-1 bg-gray-200 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-1000"
+                        style={{width: `${timeline.progress}%`}}
+                      ></div>
                     </div>
-                    <p className="text-xs font-semibold">{phase.phase}</p>
-                    <p className="text-xs text-gray-600">{phase.month}</p>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
-          
-          {/* Key Deliverables */}
-          <div className="grid grid-cols-3 gap-6 mt-6">
-            <div className="feature-card-modern gradient-primary text-white">
-              <Icon name="smartphone" size={32} color="white" className="mb-3" />
-              <h5 className="font-bold text-lg">Native Apps</h5>
-              <p className="text-sm opacity-90">iOS, Android, Windows, Mac</p>
-            </div>
             
-            <div className="feature-card-modern gradient-success text-white">
-              <Icon name="globe" size={32} color="white" className="mb-3" />
-              <h5 className="font-bold text-lg">Web Platform</h5>
-              <p className="text-sm opacity-90">Progressive Web App with offline support</p>
-            </div>
-            
-            <div className="feature-card-modern gradient-warm text-white">
-              <Icon name="book-open" size={32} color="white" className="mb-3" />
-              <h5 className="font-bold text-lg">Documentation</h5>
-              <p className="text-sm opacity-90">User guides, API docs, video tutorials</p>
+            <div className="grid grid-cols-2 gap-4 mt-4">
+              <div className="stat-card text-center">
+                <AnimatedCounter end={7} suffix=" months" />
+                <p className="text-sm text-gray-600 mt-2">Total Duration</p>
+              </div>
+              <div className="stat-card text-center">
+                <AnimatedCounter end={4} suffix=" phases" />
+                <p className="text-sm text-gray-600 mt-2">Project Phases</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     ),
-    bg: "bg-gradient-to-br from-blue-50 via-purple-50 to-green-50",
+    bg: "bg-gradient-to-bl from-green-50 to-blue-50",
     overlay: "",
     decoLeft: "",
     decoRight: ""
@@ -1723,7 +1634,7 @@ const slides = [
                 { metric: "Threat Detection", value: "Real-time", icon: "alert-triangle" },
                 { metric: "Audit Logs", value: "Complete", icon: "file-text" },
                 { metric: "Vulnerability Scans", value: "Daily", icon: "search" },
-                { metric: "Incident Response", value: "&lt; 15min", icon: "clock" }
+                { metric: "Incident Response", value: "< 15min", icon: "clock" }
               ].map((monitor, i) => (
                 <div key={i} className="text-center p-3 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg">
                   <Icon name={monitor.icon} size={24} color="#667eea" className="mx-auto mb-2" />
@@ -1933,15 +1844,15 @@ const slides = [
                 </div>
                 <div className="flex justify-between">
                   <span>Lead Time</span>
-                  <span className="font-mono">&lt; 2 hours</span>
+                  <span className="font-mono">< 2 hours</span>
                 </div>
                 <div className="flex justify-between">
                   <span>MTTR</span>
-                  <span className="font-mono">&lt; 30 min</span>
+                  <span className="font-mono">< 30 min</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Change Failure</span>
-                  <span className="font-mono">&lt; 5%</span>
+                  <span className="font-mono">< 5%</span>
                 </div>
               </div>
             </div>
@@ -2377,1188 +2288,7 @@ const slides = [
     overlay: "",
     decoLeft: "",
     decoRight: ""
-  },
-  // 25. Deliverables
-  {
-    title: "Deliverables",
-    content: (
-      <div className="animate-fadeInScale">
-        <div className="stagger-animation">
-          <span className="badge-outline">Outputs</span>
-          <h3 className="heading-lg text-gradient mt-4">What You'll Receive</h3>
-          
-          <div className="grid grid-cols-3 gap-6 mt-8">
-            {[
-              {
-                category: "Applications",
-                icon: "package",
-                items: [
-                  "Web application (React)",
-                  "iOS app (React Native)",
-                  "Android app (React Native)",
-                  "Admin dashboard"
-                ],
-                color: "#667eea"
-              },
-              {
-                category: "Documentation",
-                icon: "file-text",
-                items: [
-                  "User manual",
-                  "API documentation",
-                  "Admin guide",
-                  "Video tutorials"
-                ],
-                color: "#764ba2"
-              },
-              {
-                category: "Technical Assets",
-                icon: "code",
-                items: [
-                  "Source code",
-                  "Database schemas",
-                  "CI/CD pipelines",
-                  "Test suites"
-                ],
-                color: "#84fab0"
-              }
-            ].map((deliverable, i) => (
-              <div key={i} className="modern-card hover-lift" style={{animationDelay: `${i * 0.15}s`}}>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="icon-circle" style={{background: `linear-gradient(135deg, ${deliverable.color}22, ${deliverable.color}44)`}}>
-                    <Icon name={deliverable.icon} size={24} color={deliverable.color} />
-                  </div>
-                  <h5 className="font-bold">{deliverable.category}</h5>
-                </div>
-                
-                <ul className="space-y-2">
-                  {deliverable.items.map((item, j) => (
-                    <li key={j} className="flex items-center gap-2 text-sm text-gray-600">
-                      <Icon name="check-circle" size={14} color="#10b981" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          
-          <div className="grid-2 mt-6">
-            <div className="feature-card-modern">
-              <h5 className="font-bold mb-3">Training Package</h5>
-              <div className="space-y-2 text-sm">
-                <div className="flex items-center gap-2">
-                  <Icon name="video" size={16} color="#667eea" />
-                  <span>8 hours of training videos</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Icon name="users" size={16} color="#667eea" />
-                  <span>Live training sessions</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Icon name="book-open" size={16} color="#667eea" />
-                  <span>Quick start guides</span>
-                </div>
-              </div>
-            </div>
-            
-            <div className="feature-card-modern">
-              <h5 className="font-bold mb-3">Support Materials</h5>
-              <div className="space-y-2 text-sm">
-                <div className="flex items-center gap-2">
-                  <Icon name="headphones" size={16} color="#764ba2" />
-                  <span>24/7 support documentation</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Icon name="message-circle" size={16} color="#764ba2" />
-                  <span>Community forum setup</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Icon name="mail" size={16} color="#764ba2" />
-                  <span>Email templates</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-    bg: "bg-gradient-to-r from-green-50 to-blue-50",
-    overlay: "",
-    decoLeft: "",
-    decoRight: ""
-  },
-
-  // 26. Quality & Testing Strategy
-  {
-    title: "Quality & Testing Strategy",
-    content: (
-      <div className="animate-fadeInUp">
-        <div className="stagger-animation">
-          <span className="badge-gradient">Quality Assurance</span>
-          <h3 className="heading-lg text-gradient mt-4">Comprehensive Testing Approach</h3>
-          
-          <div className="modern-card mt-8">
-            <div className="grid grid-cols-4 gap-4">
-              {[
-                { type: "Unit Testing", coverage: 90, icon: "cpu", color: "#667eea" },
-                { type: "Integration", coverage: 85, icon: "git-merge", color: "#764ba2" },
-                { type: "E2E Testing", coverage: 80, icon: "monitor", color: "#84fab0" },
-                { type: "Performance", coverage: 95, icon: "zap", color: "#8fd3f4" }
-              ].map((test, i) => (
-                <div key={i} className="text-center" style={{animationDelay: `${i * 0.1}s`}}>
-                  <div className="mb-3">
-                    <ProgressCircle percentage={test.coverage} size={100} color={test.color} />
-                  </div>
-                  <Icon name={test.icon} size={20} color={test.color} className="mx-auto mb-1" />
-                  <p className="text-sm font-semibold">{test.type}</p>
-                  <p className="text-xs text-gray-600">Coverage Target</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="grid-2 mt-8">
-            <div>
-              <div className="glass-card p-4 mb-4">
-                <h5 className="font-bold mb-3">Testing Phases</h5>
-                <div className="space-y-2">
-                  {[
-                    { phase: "Development Testing", desc: "Continuous during sprints" },
-                    { phase: "System Testing", desc: "End of each milestone" },
-                    { phase: "UAT", desc: "Pre-launch validation" },
-                    { phase: "Performance Testing", desc: "Load & stress tests" }
-                  ].map((phase, i) => (
-                    <div key={i} className="flex items-start gap-2 text-sm">
-                      <Icon name="check-square" size={16} color="#667eea" className="mt-0.5" />
-                      <div>
-                        <p className="font-semibold">{phase.phase}</p>
-                        <p className="text-xs text-gray-600">{phase.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="stat-card">
-                <h5 className="font-bold mb-2">Bug Tracking</h5>
-                <p className="text-xs text-gray-600">JIRA integration with automated reporting</p>
-              </div>
-            </div>
-            
-            <div>
-              <div className="feature-card-modern">
-                <h5 className="font-bold mb-4">Quality Metrics</h5>
-                <div className="space-y-3">
-                  {[
-                    { metric: "Code Quality", target: "A rating", current: "A" },
-                    { metric: "Bug Density", target: "&lt; 0.5/KLOC", current: "0.3" },
-                    { metric: "Test Pass Rate", target: "&gt; 98%", current: "99%" },
-                    { metric: "Response Time", target: "&lt; 200ms", current: "150ms" }
-                  ].map((metric, i) => (
-                    <div key={i} className="flex justify-between text-sm">
-                      <span>{metric.metric}</span>
-                      <div className="text-right">
-                        <span className="font-semibold text-green-600">{metric.current}</span>
-                        <span className="text-xs text-gray-500 ml-1">/ {metric.target}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="modern-card mt-6 gradient-success text-white">
-            <Icon name="shield-check" size={32} color="white" className="mb-2" />
-            <h5 className="font-bold text-lg">Zero Critical Bugs at Launch</h5>
-            <p className="text-sm opacity-90">Our commitment to quality delivery</p>
-          </div>
-        </div>
-      </div>
-    ),
-    bg: "bg-gradient-to-br from-purple-50 to-blue-50",
-    overlay: "",
-    decoLeft: "",
-    decoRight: ""
-  },
-
-  // 27. Risks & Mitigation
-  {
-    title: "Risks & Mitigation",
-    content: (
-      <div className="animate-fadeInScale">
-        <div className="stagger-animation">
-          <span className="badge-outline">Risk Management</span>
-          <h3 className="heading-lg text-gradient mt-4">Proactive Risk Management</h3>
-          
-          <div className="grid grid-cols-2 gap-6 mt-8">
-            {[
-              {
-                risk: "Technical Complexity",
-                impact: "Medium",
-                probability: "Low",
-                mitigation: "Experienced team, proven tech stack, architectural reviews",
-                icon: "cpu",
-                color: "#667eea"
-              },
-              {
-                risk: "Scope Creep",
-                impact: "High",
-                probability: "Medium",
-                mitigation: "Clear requirements, change control process, regular reviews",
-                icon: "trending-up",
-                color: "#764ba2"
-              },
-              {
-                risk: "Timeline Delays",
-                impact: "High",
-                probability: "Low",
-                mitigation: "Buffer time included, parallel workstreams, dedicated resources",
-                icon: "clock",
-                color: "#84fab0"
-              },
-              {
-                risk: "Third-party Dependencies",
-                impact: "Medium",
-                probability: "Low",
-                mitigation: "Fallback options, vendor SLAs, abstraction layers",
-                icon: "link",
-                color: "#8fd3f4"
-              }
-            ].map((risk, i) => (
-              <div key={i} className="modern-card hover-lift" style={{animationDelay: `${i * 0.15}s`}}>
-                <div className="flex items-start gap-3">
-                  <div className="icon-circle" style={{background: `linear-gradient(135deg, ${risk.color}22, ${risk.color}44)`}}>
-                    <Icon name={risk.icon} size={20} color={risk.color} />
-                  </div>
-                  <div className="flex-1">
-                    <h5 className="font-bold mb-2">{risk.risk}</h5>
-                    
-                    <div className="flex gap-2 mb-3">
-                      <span className={`text-xs px-2 py-1 rounded ${
-                        risk.impact === 'High' ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700'
-                      }`}>
-                        Impact: {risk.impact}
-                      </span>
-                      <span className={`text-xs px-2 py-1 rounded ${
-                        risk.probability === 'Low' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
-                      }`}>
-                        Probability: {risk.probability}
-                      </span>
-                    </div>
-                    
-                    <div className="p-2 bg-gray-50 rounded">
-                      <p className="text-xs font-semibold text-gray-700 mb-1">Mitigation:</p>
-                      <p className="text-xs text-gray-600">{risk.mitigation}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="feature-card-modern mt-6">
-            <h5 className="font-bold mb-4">Risk Monitoring Dashboard</h5>
-            <div className="grid grid-cols-3 gap-4">
-              <div className="text-center">
-                <Icon name="alert-triangle" size={24} color="#ef4444" className="mx-auto mb-2" />
-                <p className="text-2xl font-bold">0</p>
-                <p className="text-xs text-gray-600">Critical Risks</p>
-              </div>
-              <div className="text-center">
-                <Icon name="alert-circle" size={24} color="#f59e0b" className="mx-auto mb-2" />
-                <p className="text-2xl font-bold">2</p>
-                <p className="text-xs text-gray-600">Medium Risks</p>
-              </div>
-              <div className="text-center">
-                <Icon name="info" size={24} color="#10b981" className="mx-auto mb-2" />
-                <p className="text-2xl font-bold">4</p>
-                <p className="text-xs text-gray-600">Low Risks</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-    bg: "bg-gradient-to-bl from-red-50 to-purple-50",
-    overlay: "",
-    decoLeft: "",
-    decoRight: ""
-  },
-
-  // ======== SUPPORT & GROWTH (Slides 28-32) ========
-  // 28. Training & Change Management
-  {
-    title: "Training & Change Management",
-    content: (
-      <div className="animate-fadeInUp">
-        <div className="stagger-animation">
-          <span className="badge-gradient">User Success</span>
-          <h3 className="heading-lg text-gradient mt-4">Comprehensive Training Program</h3>
-          
-          <div className="grid grid-cols-3 gap-6 mt-8">
-            {[
-              {
-                phase: "Pre-Launch",
-                icon: "book-open",
-                activities: [
-                  "Documentation prep",
-                  "Video tutorials",
-                  "Beta testing",
-                  "Feedback collection"
-                ],
-                color: "#667eea"
-              },
-              {
-                phase: "Launch",
-                icon: "rocket",
-                activities: [
-                  "Live training sessions",
-                  "Onboarding flow",
-                  "Quick start guides",
-                  "Support team ready"
-                ],
-                color: "#764ba2"
-              },
-              {
-                phase: "Post-Launch",
-                icon: "trending-up",
-                activities: [
-                  "Advanced workshops",
-                  "Community building",
-                  "Feature updates",
-                  "Success stories"
-                ],
-                color: "#84fab0"
-              }
-            ].map((training, i) => (
-              <div key={i} className="modern-card hover-lift" style={{animationDelay: `${i * 0.15}s`}}>
-                <div className="text-center mb-4">
-                  <div className="icon-circle mx-auto" style={{background: `linear-gradient(135deg, ${training.color}22, ${training.color}44)`}}>
-                    <Icon name={training.icon} size={24} color={training.color} />
-                  </div>
-                  <h5 className="font-bold mt-3">{training.phase}</h5>
-                </div>
-                
-                <ul className="space-y-2">
-                  {training.activities.map((activity, j) => (
-                    <li key={j} className="flex items-center gap-2 text-sm text-gray-600">
-                      <Icon name="check" size={14} color={training.color} />
-                      {activity}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          
-          <div className="modern-card mt-8">
-            <h4 className="font-bold text-lg mb-4">Training Resources</h4>
-            <div className="grid grid-cols-4 gap-4">
-              {[
-                { type: "Video Tutorials", count: "50+", icon: "video" },
-                { type: "Written Guides", count: "100+", icon: "file-text" },
-                { type: "Live Sessions", count: "12", icon: "users" },
-                { type: "Certificates", count: "3 levels", icon: "award" }
-              ].map((resource, i) => (
-                <div key={i} className="text-center p-3 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg">
-                  <Icon name={resource.icon} size={24} color="#667eea" className="mx-auto mb-2" />
-                  <p className="text-2xl font-bold text-gradient">{resource.count}</p>
-                  <p className="text-xs text-gray-600">{resource.type}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="feature-card-modern mt-6 gradient-primary text-white">
-            <div className="flex items-center justify-between">
-              <div>
-                <h5 className="font-bold text-lg">User Adoption Target</h5>
-                <p className="text-sm opacity-90">80% active users within first month</p>
-              </div>
-              <ProgressCircle percentage={80} size={80} color="white" />
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-    bg: "bg-gradient-to-r from-blue-50 to-green-50",
-    overlay: "",
-    decoLeft: "",
-    decoRight: ""
-  },
-
-  // 29. Support, SLA & Maintenance
-  {
-    title: "Support, SLA & Maintenance",
-    content: (
-      <div className="animate-fadeInScale">
-        <div className="stagger-animation">
-          <span className="badge-outline">Support</span>
-          <h3 className="heading-lg text-gradient mt-4">24/7 Support Excellence</h3>
-          
-          <div className="grid-2 mt-8">
-            <div>
-              <div className="modern-card mb-4">
-                <h4 className="font-bold mb-4">Support Tiers</h4>
-                <div className="space-y-3">
-                  {[
-                    { tier: "Basic", response: "24 hours", channels: "Email, Docs", price: "Included" },
-                    { tier: "Professional", response: "4 hours", channels: "+ Phone, Chat", price: "$500/mo" },
-                    { tier: "Enterprise", response: "1 hour", channels: "+ Dedicated", price: "$2000/mo" }
-                  ].map((tier, i) => (
-                    <div key={i} className="p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg">
-                      <div className="flex justify-between items-start mb-2">
-                        <h5 className="font-semibold">{tier.tier}</h5>
-                        <span className="text-xs px-2 py-1 bg-white rounded">{tier.price}</span>
-                      </div>
-                      <p className="text-xs text-gray-600">Response: {tier.response}</p>
-                      <p className="text-xs text-gray-600">Channels: {tier.channels}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            
-            <div>
-              <div className="feature-card-modern mb-4">
-                <h4 className="font-bold mb-4">SLA Commitments</h4>
-                <div className="space-y-3">
-                  {[
-                    { metric: "Uptime", target: "99.9%", penalty: "Service credits" },
-                    { metric: "Response Time", target: "&lt; 200ms", penalty: "Investigation" },
-                    { metric: "Data Recovery", target: "&lt; 4 hours", penalty: "Full refund" },
-                    { metric: "Security Patches", target: "&lt; 24 hours", penalty: "Priority fix" }
-                  ].map((sla, i) => (
-                    <div key={i} className="flex justify-between text-sm">
-                      <span>{sla.metric}</span>
-                      <span className="font-semibold">{sla.target}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="glass-card p-4">
-                <h5 className="font-semibold mb-3">Maintenance Windows</h5>
-                <p className="text-xs text-gray-600">Scheduled: Sunday 2-4 AM UTC</p>
-                <p className="text-xs text-gray-600 mt-1">Emergency: 30 min notice</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-3 gap-4 mt-6">
-            <div className="stat-card text-center">
-              <Icon name="headphones" size={24} color="#667eea" className="mx-auto mb-2" />
-              <AnimatedCounter end={24} suffix="/7" />
-              <p className="text-xs text-gray-600">Support Hours</p>
-            </div>
-            <div className="stat-card text-center">
-              <Icon name="users" size={24} color="#764ba2" className="mx-auto mb-2" />
-              <AnimatedCounter end={10} suffix="+" />
-              <p className="text-xs text-gray-600">Support Team</p>
-            </div>
-            <div className="stat-card text-center">
-              <Icon name="star" size={24} color="#84fab0" className="mx-auto mb-2" />
-              <AnimatedCounter end={98} suffix="%" />
-              <p className="text-xs text-gray-600">Satisfaction Rate</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-    bg: "bg-gradient-to-bl from-purple-50 to-pink-50",
-    overlay: "",
-    decoLeft: "",
-    decoRight: ""
-  },
-
-  // 30. Commercial Add-Ons
-  {
-    title: "Commercial Add-Ons",
-    content: (
-      <div className="animate-fadeInUp">
-        <div className="stagger-animation">
-          <span className="badge-gradient">Premium Features</span>
-          <h3 className="heading-lg text-gradient mt-4">Value-Added Services</h3>
-          
-          <div className="grid grid-cols-3 gap-6 mt-8">
-            {[
-              {
-                addon: "AI Coach Assistant",
-                price: "$299/mo",
-                features: [
-                  "Tactical suggestions",
-                  "Pattern recognition",
-                  "Performance prediction",
-                  "Natural language"
-                ],
-                icon: "brain",
-                color: "#667eea",
-                popular: true
-              },
-              {
-                addon: "Video Analysis",
-                price: "$199/mo",
-                features: [
-                  "Match footage sync",
-                  "Auto-tagging",
-                  "Highlight reels",
-                  "Player tracking"
-                ],
-                icon: "video",
-                color: "#764ba2",
-                popular: false
-              },
-              {
-                addon: "Team Analytics",
-                price: "$149/mo",
-                features: [
-                  "Performance metrics",
-                  "Custom reports",
-                  "Benchmarking",
-                  "API access"
-                ],
-                icon: "bar-chart-2",
-                color: "#84fab0",
-                popular: false
-              }
-            ].map((addon, i) => (
-              <div key={i} className="modern-card hover-lift relative" style={{animationDelay: `${i * 0.15}s`}}>
-                {addon.popular && (
-                  <div className="absolute -top-3 -right-3 px-2 py-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs rounded-full">
-                    Popular
-                  </div>
-                )}
-                
-                <div className="text-center mb-4">
-                  <div className="icon-circle mx-auto mb-3" style={{background: `linear-gradient(135deg, ${addon.color}22, ${addon.color}44)`}}>
-                    <Icon name={addon.icon} size={24} color={addon.color} />
-                  </div>
-                  <h5 className="font-bold">{addon.addon}</h5>
-                  <p className="text-2xl font-bold text-gradient mt-2">{addon.price}</p>
-                </div>
-                
-                <ul className="space-y-2">
-                  {addon.features.map((feature, j) => (
-                    <li key={j} className="flex items-center gap-2 text-sm text-gray-600">
-                      <Icon name="check-circle" size={14} color="#10b981" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                
-                <button className="w-full mt-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg text-sm font-semibold hover:shadow-lg transition-shadow">
-                  Add to Plan
-                </button>
-              </div>
-            ))}
-          </div>
-          
-          <div className="modern-card mt-8 gradient-animated text-white">
-            <h4 className="font-bold text-lg mb-4">Enterprise Bundle</h4>
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm opacity-90">All add-ons + priority support + custom features</p>
-                <p className="text-3xl font-bold mt-2">$599/mo</p>
-                <p className="text-xs opacity-75">Save $48/month</p>
-              </div>
-              <Icon name="package" size={48} color="white" />
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-    bg: "bg-gradient-to-r from-indigo-50 to-purple-50",
-    overlay: "",
-    decoLeft: "",
-    decoRight: ""
-  },
-
-  // 31. Assumptions & Dependencies  
-  {
-    title: "Assumptions & Dependencies",
-    content: (
-      <div className="animate-fadeInScale">
-        <div className="stagger-animation">
-          <span className="badge-outline">Project Baseline</span>
-          <h3 className="heading-lg text-gradient mt-4">Key Assumptions & Dependencies</h3>
-          
-          <div className="grid-2 mt-8">
-            <div>
-              <div className="modern-card mb-4">
-                <h4 className="font-bold mb-4">Assumptions</h4>
-                <div className="space-y-3">
-                  {[
-                    { item: "Timely feedback", desc: "Within 48 hours", icon: "message-circle" },
-                    { item: "Resource availability", desc: "As per plan", icon: "users" },
-                    { item: "API stability", desc: "Third-party services", icon: "link" },
-                    { item: "Market conditions", desc: "No major shifts", icon: "trending-up" }
-                  ].map((assumption, i) => (
-                    <div key={i} className="flex items-start gap-3 p-2 hover:bg-gray-50 rounded transition-colors">
-                      <Icon name={assumption.icon} size={16} color="#667eea" className="mt-0.5" />
-                      <div>
-                        <p className="text-sm font-semibold">{assumption.item}</p>
-                        <p className="text-xs text-gray-600">{assumption.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            
-            <div>
-              <div className="feature-card-modern">
-                <h4 className="font-bold mb-4">Dependencies</h4>
-                <div className="space-y-3">
-                  {[
-                    { item: "Cloud services", provider: "AWS/Azure", critical: true },
-                    { item: "Payment gateway", provider: "Stripe", critical: true },
-                    { item: "Video CDN", provider: "CloudFlare", critical: false },
-                    { item: "Analytics", provider: "Mixpanel", critical: false }
-                  ].map((dependency, i) => (
-                    <div key={i} className="flex items-center justify-between p-2 bg-white border border-gray-200 rounded">
-                      <div className="flex items-center gap-2">
-                        <Icon name="package" size={16} color="#764ba2" />
-                        <span className="text-sm">{dependency.item}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs text-gray-600">{dependency.provider}</span>
-                        {dependency.critical && (
-                          <span className="px-1 py-0.5 bg-red-100 text-red-700 text-xs rounded">Critical</span>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="modern-card mt-6">
-            <h5 className="font-bold mb-3">Success Factors</h5>
-            <div className="grid grid-cols-4 gap-4">
-              {[
-                { factor: "Clear Requirements", status: "Confirmed", icon: "check-square" },
-                { factor: "Stakeholder Buy-in", status: "Confirmed", icon: "users" },
-                { factor: "Technical Feasibility", status: "Validated", icon: "cpu" },
-                { factor: "Budget Approval", status: "Pending", icon: "dollar-sign" }
-              ].map((factor, i) => (
-                <div key={i} className="text-center">
-                  <Icon name={factor.icon} size={24} color={factor.status === 'Pending' ? '#f59e0b' : '#10b981'} className="mx-auto mb-2" />
-                  <p className="text-sm font-semibold">{factor.factor}</p>
-                  <p className={`text-xs mt-1 ${
-                    factor.status === 'Pending' ? 'text-yellow-600' : 'text-green-600'
-                  }`}>
-                    {factor.status}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-    bg: "bg-gradient-to-br from-gray-50 to-blue-50",
-    overlay: "",
-    decoLeft: "",
-    decoRight: ""
-  },
-
-  // 32. Case Study Inspiration
-  {
-    title: "Case Study Inspiration",
-    content: (
-      <div className="animate-fadeInUp">
-        <div className="stagger-animation">
-          <span className="badge-gradient">Success Stories</span>
-          <h3 className="heading-lg text-gradient mt-4">Industry Success Examples</h3>
-          
-          <div className="grid grid-cols-3 gap-6 mt-8">
-            {[
-              {
-                project: "Premier League Club",
-                sport: "Football",
-                results: [
-                  "35% faster tactics prep",
-                  "2x player engagement",
-                  "50% less meeting time"
-                ],
-                icon: "⚽",
-                color: "#667eea"
-              },
-              {
-                project: "NBA Team",
-                sport: "Basketball",
-                results: [
-                  "Real-time play calling",
-                  "40% better retention",
-                  "3x video analysis speed"
-                ],
-                icon: "🏀",
-                color: "#764ba2"
-              },
-              {
-                project: "Olympic Committee",
-                sport: "Multi-sport",
-                results: [
-                  "15 sports supported",
-                  "500+ coaches trained",
-                  "98% satisfaction"
-                ],
-                icon: "🏅",
-                color: "#84fab0"
-              }
-            ].map((study, i) => (
-              <div key={i} className="modern-card hover-lift" style={{animationDelay: `${i * 0.15}s`}}>
-                <div className="text-center mb-4">
-                  <div className="text-4xl mb-3">{study.icon}</div>
-                  <h5 className="font-bold">{study.project}</h5>
-                  <p className="text-sm text-gray-600">{study.sport}</p>
-                </div>
-                
-                <div className="space-y-2 mb-4">
-                  {study.results.map((result, j) => (
-                    <div key={j} className="flex items-center gap-2 text-sm">
-                      <Icon name="trending-up" size={14} color={study.color} />
-                      <span className="text-gray-700">{result}</span>
-                    </div>
-                  ))}
-                </div>
-                
-                <div className="pt-3 border-t text-center">
-                  <p className="text-xs text-gray-600">ROI achieved in</p>
-                  <p className="text-lg font-bold" style={{color: study.color}}>&lt; 6 months</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="feature-card-modern mt-8">
-            <h4 className="font-bold text-lg mb-4">Why They Succeeded</h4>
-            <div className="grid grid-cols-4 gap-4">
-              {[
-                { reason: "User-Centered Design", icon: "users" },
-                { reason: "Iterative Development", icon: "refresh-cw" },
-                { reason: "Strong Support", icon: "headphones" },
-                { reason: "Continuous Updates", icon: "download" }
-              ].map((reason, i) => (
-                <div key={i} className="text-center">
-                  <Icon name={reason.icon} size={24} color="#667eea" className="mx-auto mb-2" />
-                  <p className="text-sm">{reason.reason}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="modern-card mt-6 gradient-success text-white">
-            <Icon name="award" size={32} color="white" className="mb-2" />
-            <h5 className="font-bold text-lg">Your Success Is Our Success</h5>
-            <p className="text-sm opacity-90">Join the growing list of successful sports organizations</p>
-          </div>
-        </div>
-      </div>
-    ),
-    bg: "bg-gradient-to-bl from-green-50 to-blue-50",
-    overlay: "",
-    decoLeft: "",
-    decoRight: ""
-  },
-
-  // ======== COMMERCIAL & CLOSING (Slides 33-36) ========
-  // 33. Pricing & Payment Terms
-  {
-    title: "Pricing & Payment Terms",
-    content: (
-      <div className="animate-fadeInScale">
-        <div className="stagger-animation">
-          <span className="badge-gradient">Investment</span>
-          <h3 className="heading-lg text-gradient mt-4">Transparent Pricing Structure</h3>
-          
-          <div className="modern-card mt-8">
-            <div className="grid grid-cols-3 gap-6">
-              {[
-                {
-                  phase: "Development",
-                  cost: "$150,000",
-                  duration: "7 months",
-                  includes: ["Design & Development", "Testing & QA", "Documentation", "Training"],
-                  payment: "Monthly milestones"
-                },
-                {
-                  phase: "Launch Support",
-                  cost: "$20,000",
-                  duration: "2 months",
-                  includes: ["Go-live assistance", "Bug fixes", "Performance tuning", "User support"],
-                  payment: "50% upfront"
-                },
-                {
-                  phase: "Annual License",
-                  cost: "$30,000/yr",
-                  duration: "Ongoing",
-                  includes: ["Updates & upgrades", "Security patches", "Basic support", "Cloud hosting"],
-                  payment: "Quarterly"
-                }
-              ].map((pricing, i) => (
-                <div key={i} className="glass-card p-4 hover-lift" style={{animationDelay: `${i * 0.15}s`}}>
-                  <div className="text-center mb-4">
-                    <h5 className="font-bold text-lg">{pricing.phase}</h5>
-                    <p className="text-3xl font-bold text-gradient mt-2">{pricing.cost}</p>
-                    <p className="text-sm text-gray-600">{pricing.duration}</p>
-                  </div>
-                  
-                  <div className="space-y-2 mb-4">
-                    {pricing.includes.map((item, j) => (
-                      <div key={j} className="flex items-center gap-2 text-sm text-gray-600">
-                        <Icon name="check-circle" size={14} color="#10b981" />
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <div className="pt-3 border-t text-center">
-                    <p className="text-xs text-gray-600">Payment: {pricing.payment}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            <div className="mt-6 p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h5 className="font-bold">Total Year 1 Investment</h5>
-                  <p className="text-sm text-gray-600">Development + Launch + License</p>
-                </div>
-                <p className="text-3xl font-bold text-gradient">$200,000</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="grid-2 mt-6">
-            <div className="feature-card-modern">
-              <h5 className="font-bold mb-3">Payment Schedule</h5>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span>Upon signing</span>
-                  <span className="font-semibold">10%</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Monthly milestones</span>
-                  <span className="font-semibold">70%</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Upon delivery</span>
-                  <span className="font-semibold">20%</span>
-                </div>
-              </div>
-            </div>
-            
-            <div className="feature-card-modern">
-              <h5 className="font-bold mb-3">Optional Services</h5>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span>Premium Support</span>
-                  <span className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded">+$2K/mo</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Custom Features</span>
-                  <span className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded">Quote</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Data Migration</span>
-                  <span className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded">+$10K</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-    bg: "bg-gradient-to-r from-purple-50 to-pink-50",
-    overlay: "",
-    decoLeft: "",
-    decoRight: ""
-  },
-
-  // 34. Terms & Conditions
-  {
-    title: "Terms & Conditions",
-    content: (
-      <div className="animate-fadeInUp">
-        <div className="stagger-animation">
-          <span className="badge-outline">Agreement</span>
-          <h3 className="heading-lg text-gradient mt-4">Key Terms & Conditions</h3>
-          
-          <div className="grid grid-cols-2 gap-6 mt-8">
-            {[
-              {
-                category: "Intellectual Property",
-                icon: "shield",
-                terms: [
-                  "Client owns all custom code",
-                  "We retain framework rights",
-                  "Open source components included",
-                  "No vendor lock-in"
-                ]
-              },
-              {
-                category: "Warranties",
-                icon: "award",
-                terms: [
-                  "90-day bug fix guarantee",
-                  "Performance guarantees",
-                  "Security compliance",
-                  "Documentation accuracy"
-                ]
-              },
-              {
-                category: "Liabilities",
-                icon: "alert-circle",
-                terms: [
-                  "Limited to contract value",
-                  "No indirect damages",
-                  "Force majeure clause",
-                  "Insurance coverage"
-                ]
-              },
-              {
-                category: "Termination",
-                icon: "x-circle",
-                terms: [
-                  "30-day notice period",
-                  "Code handover guaranteed",
-                  "Data export provided",
-                  "Knowledge transfer included"
-                ]
-              }
-            ].map((term, i) => (
-              <div key={i} className="modern-card hover-lift" style={{animationDelay: `${i * 0.15}s`}}>
-                <div className="flex items-center gap-3 mb-4">
-                  <Icon name={term.icon} size={24} color="#667eea" />
-                  <h5 className="font-bold">{term.category}</h5>
-                </div>
-                
-                <ul className="space-y-2">
-                  {term.terms.map((item, j) => (
-                    <li key={j} className="flex items-start gap-2 text-sm text-gray-600">
-                      <Icon name="check" size={14} color="#10b981" className="mt-0.5" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          
-          <div className="modern-card mt-8">
-            <h5 className="font-bold mb-4">Additional Protections</h5>
-            <div className="grid grid-cols-3 gap-4">
-              {[
-                { item: "NDA in place", icon: "lock" },
-                { item: "GDPR compliant", icon: "shield-check" },
-                { item: "Escrow available", icon: "archive" }
-              ].map((protection, i) => (
-                <div key={i} className="flex items-center gap-3 p-3 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg">
-                  <Icon name={protection.icon} size={20} color="#667eea" />
-                  <span className="text-sm font-semibold">{protection.item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="feature-card-modern mt-6 gradient-dark text-white">
-            <Icon name="file-text" size={32} color="white" className="mb-2" />
-            <h5 className="font-bold text-lg">Full Contract Available</h5>
-            <p className="text-sm opacity-90">Detailed MSA and SOW ready for review</p>
-          </div>
-        </div>
-      </div>
-    ),
-    bg: "bg-gradient-to-bl from-gray-50 to-purple-50",
-    overlay: "",
-    decoLeft: "",
-    decoRight: ""
-  },
-
-  // 35. Next Steps
-  {
-    title: "Next Steps",
-    content: (
-      <div className="animate-fadeInScale">
-        <div className="stagger-animation">
-          <span className="badge-gradient">Action Plan</span>
-          <h3 className="heading-lg text-gradient mt-4">Let's Get Started</h3>
-          
-          <div className="modern-card mt-8">
-            <div className="relative pl-8">
-              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 to-pink-500"></div>
-              
-              {[
-                {
-                  step: "Week 1",
-                  title: "Decision & Approval",
-                  actions: ["Review proposal", "Internal discussions", "Q&A session", "Budget approval"],
-                  icon: "check-square"
-                },
-                {
-                  step: "Week 2",
-                  title: "Contract & Planning",
-                  actions: ["Contract negotiation", "Sign agreements", "Team introductions", "Kick-off meeting"],
-                  icon: "file-text"
-                },
-                {
-                  step: "Week 3-4",
-                  title: "Discovery & Design",
-                  actions: ["Requirements workshop", "User interviews", "Technical architecture", "Design mockups"],
-                  icon: "search"
-                },
-                {
-                  step: "Month 2+",
-                  title: "Development Begins",
-                  actions: ["Sprint planning", "Start coding", "Regular demos", "Continuous feedback"],
-                  icon: "code"
-                }
-              ].map((next, i) => (
-                <div key={i} className="relative mb-8" style={{animationDelay: `${i * 0.15}s`}}>
-                  <div className="absolute -left-6 w-4 h-4 bg-white border-2 border-purple-500 rounded-full"></div>
-                  
-                  <div className="glass-card p-4 hover-lift">
-                    <div className="flex items-start justify-between mb-3">
-                      <div>
-                        <span className="text-xs text-gray-600">{next.step}</span>
-                        <h5 className="font-bold text-lg">{next.title}</h5>
-                      </div>
-                      <Icon name={next.icon} size={24} color="#667eea" />
-                    </div>
-                    
-                    <div className="grid grid-cols-2 gap-2">
-                      {next.actions.map((action, j) => (
-                        <div key={j} className="flex items-center gap-2 text-sm text-gray-600">
-                          <Icon name="arrow-right" size={12} color="#667eea" />
-                          {action}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-3 gap-4">
-            <div className="stat-card text-center">
-              <Icon name="calendar" size={24} color="#667eea" className="mx-auto mb-2" />
-              <p className="text-lg font-bold">Jan 2024</p>
-              <p className="text-xs text-gray-600">Project Start</p>
-            </div>
-            <div className="stat-card text-center">
-              <Icon name="users" size={24} color="#764ba2" className="mx-auto mb-2" />
-              <p className="text-lg font-bold">Ready</p>
-              <p className="text-xs text-gray-600">Team Available</p>
-            </div>
-            <div className="stat-card text-center">
-              <Icon name="rocket" size={24} color="#84fab0" className="mx-auto mb-2" />
-              <p className="text-lg font-bold">July 2024</p>
-              <p className="text-xs text-gray-600">Go Live</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-    bg: "bg-gradient-to-r from-green-50 to-blue-50",
-    overlay: "",
-    decoLeft: "",
-    decoRight: ""
-  },
-
-  // 36. Closing & Contacts
-  {
-    title: "Thank You",
-    content: (
-      <div className="animate-fadeInUp">
-        <div className="text-center stagger-animation">
-          <span className="badge-gradient animate-pulse">Let's Build Together</span>
-          <h1 className="heading-xl text-gradient mt-6">Ready to Transform Your Coaching?</h1>
-          <p className="text-xl text-gray-700 mt-4">We're excited to partner with you on this journey</p>
-          
-          <div className="grid grid-cols-3 gap-6 mt-12">
-            {[
-              {
-                name: "John Smith",
-                role: "Project Director",
-                email: "john@company.com",
-                phone: "+1 (555) 123-4567",
-                icon: "user"
-              },
-              {
-                name: "Sarah Johnson",
-                role: "Technical Lead",
-                email: "sarah@company.com",
-                phone: "+1 (555) 234-5678",
-                icon: "code"
-              },
-              {
-                name: "Mike Wilson",
-                role: "Product Manager",
-                email: "mike@company.com",
-                phone: "+1 (555) 345-6789",
-                icon: "briefcase"
-              }
-            ].map((contact, i) => (
-              <div key={i} className="modern-card hover-lift" style={{animationDelay: `${i * 0.15}s`}}>
-                <div className="icon-circle mx-auto mb-4">
-                  <Icon name={contact.icon} size={24} color="#667eea" />
-                </div>
-                <h5 className="font-bold text-lg">{contact.name}</h5>
-                <p className="text-sm text-gray-600 mb-3">{contact.role}</p>
-                
-                <div className="space-y-2 text-sm">
-                  <a href={`mailto:${contact.email}`} className="flex items-center gap-2 text-blue-600 hover:text-blue-700">
-                    <Icon name="mail" size={14} />
-                    {contact.email}
-                  </a>
-                  <a href={`tel:${contact.phone}`} className="flex items-center gap-2 text-blue-600 hover:text-blue-700">
-                    <Icon name="phone" size={14} />
-                    {contact.phone}
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="modern-card mt-12 gradient-animated text-white">
-            <Icon name="calendar" size={40} color="white" className="mb-4" />
-            <h3 className="text-2xl font-bold mb-2">Schedule a Follow-up Meeting</h3>
-            <p className="text-lg opacity-90 mb-6">Let's discuss your questions and next steps</p>
-            <button className="px-8 py-3 bg-white text-purple-600 rounded-lg font-semibold hover:shadow-xl transition-shadow">
-              Book a Meeting
-            </button>
-          </div>
-          
-          <div className="mt-12">
-            <div className="flex justify-center gap-6">
-              {[
-                { icon: "globe", link: "www.company.com" },
-                { icon: "linkedin", link: "LinkedIn" },
-                { icon: "twitter", link: "Twitter" },
-                { icon: "github", link: "GitHub" }
-              ].map((social, i) => (
-                <a key={i} href="#" className="icon-circle hover:scale-110 transition-transform">
-                  <Icon name={social.icon} size={24} color="#667eea" />
-                </a>
-              ))}
-            </div>
-            
-            <p className="text-sm text-gray-600 mt-6">© 2024 Your Company Name. All rights reserved.</p>
-          </div>
-        </div>
-      </div>
-    ),
-    bg: "bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50",
-    overlay: "",
-    decoLeft: "",
-    decoRight: ""
-  },
+  }
 ];
 
 // Main Slide Component
