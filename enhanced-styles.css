@@ -176,7 +176,7 @@
 .modern-card {
   background: white;
   border-radius: 20px;
-  padding: 2rem;
+  padding: 1.25rem;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -352,7 +352,7 @@
 .feature-card-modern {
   background: white;
   border-radius: 20px;
-  padding: 2rem;
+  padding: 1.25rem;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;

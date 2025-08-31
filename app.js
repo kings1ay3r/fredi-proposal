@@ -3658,7 +3658,9 @@ function Slide(props) {
       
       <div className="content-container">
         <h2 className="section-title text-gradient">{title}</h2>
-        {content}
+        <div className="slide-content-wrapper">
+          {content}
+        </div>
       </div>
     </div>
   );

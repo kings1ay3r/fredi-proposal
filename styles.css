@@ -76,35 +76,203 @@ p, li {
 /* Fixed slide container size for consistency on larger screens */
 @media (min-width: 1024px) {
   .content-container {
-    height: 720px !important;
+    height: 85vh !important;
+    max-height: 720px !important;
   }
 }
 
 /* Responsive height for mobile */
 @media (max-width: 1023px) {
   .content-container {
-    height: auto !important;
+    height: 85vh !important;
     min-height: 500px;
     max-height: 90vh;
+  }
+  
+  /* Even more compact on mobile */
+  .content-container .feature-card-modern,
+  .content-container .modern-card,
+  .content-container .glass-card {
+    padding: 0.5rem;
+  }
+  
+  .content-container .text-2xl {
+    font-size: 1.25rem;
+  }
+  
+  .content-container .text-xl {
+    font-size: 1rem;
+  }
+  
+  .content-container .text-lg {
+    font-size: 0.875rem;
   }
 }
 
 .content-container {
   background: var(--surface);
   border-radius: 16px;
-  padding: clamp(2rem, 4vw, 3.5rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
   box-shadow: var(--shadow-xl), 0 0 0 1px rgba(0, 0, 0, 0.05);
   width: 1200px;
   max-width: 95vw;
-  height: 700px;
+  height: 85vh;
+  max-height: 720px;
   backdrop-filter: saturate(180%) blur(20px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   border: 1px solid rgba(255, 255, 255, 0.3);
   position: relative;
   z-index: 3;
+  overflow: hidden;
+}
+
+/* Slide content optimization */
+.content-container > * {
+  flex-shrink: 0;
+}
+
+.content-container h2.section-title {
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+
+.slide-content-wrapper {
+  flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
+  max-height: calc(100% - 3rem);
+  padding-right: 0.5rem;
+}
+
+/* Custom scrollbar for content wrapper */
+.slide-content-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.slide-content-wrapper::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+.slide-content-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.slide-content-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Compact layouts for complex slides */
+.content-container .grid {
+  gap: 0.75rem;
+}
+
+.content-container .grid-cols-3 {
+  gap: 1rem;
+}
+
+.content-container .grid-cols-4 {
+  gap: 0.75rem;
+}
+
+/* Adjust padding and margins for better space utilization */
+.content-container .feature-card-modern {
+  padding: 1rem;
+}
+
+.content-container .modern-card {
+  padding: 1rem;
+}
+
+.content-container .glass-card {
+  padding: 0.75rem;
+}
+
+/* Smaller text sizes for fitting content */
+.content-container .text-2xl {
+  font-size: 1.5rem;
+}
+
+.content-container .text-xl {
+  font-size: 1.25rem;
+}
+
+.content-container .text-lg {
+  font-size: 1rem;
+}
+
+.content-container .text-base,
+.content-container .text-md {
+  font-size: 0.875rem;
+}
+
+.content-container .text-sm {
+  font-size: 0.75rem;
+}
+
+.content-container .text-xs {
+  font-size: 0.7rem;
+}
+
+/* Prevent content overflow */
+.slide-content-wrapper > div {
+  height: auto;
+  max-height: 100%;
+}
+
+/* Compact spacing for headers and badges */
+.content-container .heading-xl,
+.content-container .heading-lg,
+.content-container .heading-md {
+  margin-bottom: 0.75rem;
+}
+
+.content-container .badge-gradient,
+.content-container .badge-outline {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.7rem;
+}
+
+/* Adjust margins for better space utilization */
+.content-container .mb-8 {
+  margin-bottom: 1.5rem;
+}
+
+.content-container .mb-6 {
+  margin-bottom: 1rem;
+}
+
+.content-container .mb-4 {
+  margin-bottom: 0.75rem;
+}
+
+.content-container .mt-8 {
+  margin-top: 1.5rem;
+}
+
+.content-container .mt-6 {
+  margin-top: 1rem;
+}
+
+.content-container .mt-4 {
+  margin-top: 0.75rem;
+}
+
+/* Compact progress circles and icons */
+.content-container .icon-circle {
+  width: 40px;
+  height: 40px;
+}
+
+/* Ensure grids don't overflow */
+.content-container .grid,
+.content-container .grid-2,
+.content-container .grid-3 {
+  height: auto;
+  max-height: 100%;
 }
 
 .content-container::before {
