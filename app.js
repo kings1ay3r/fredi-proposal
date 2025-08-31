@@ -539,92 +539,161 @@ const slides = [
   // Continue with remaining 31 slides...
   // For brevity, I'll show the structure for a few more key slides
 
-  // 6. Project Understanding
+  // 6. Project Understanding - Enhanced Design
   {
     title: "Project Understanding",
     content: (
-      <div className="animate-fadeInScale">
-        <div className="grid-2">
-          <div className="stagger-animation">
-            <span className="badge-outline">Project Scope</span>
-            <h3 className="heading-lg text-gradient mt-4">What Success Looks Like</h3>
-            
-            <div className="space-y-4 mt-6">
-              <div className="feature-card-modern">
-                <div className="flex items-start gap-3">
-                  <Icon name="copy" size={24} color="#667eea" />
-                  <div>
-                    <h4 className="font-semibold mb-1">Core Replication</h4>
-                    <p className="text-sm text-gray-600">TacticalPad for drills, formations, tactics and sessions</p>
+      <div className="animate-fadeInUp">
+        {/* Core Understanding Section */}
+        <div className="mb-8">
+          <div className="text-center mb-6">
+            <span className="badge-gradient">Strategic Vision</span>
+            <h3 className="heading-lg mt-4">
+              <span className="text-gradient">Comprehensive Project Understanding</span>
+            </h3>
+          </div>
+          
+          {/* Three Pillars of Understanding */}
+          <div className="grid grid-cols-3 gap-6 mb-8">
+            {[
+              {
+                icon: "layers",
+                title: "Core Functionality",
+                subtitle: "TacticalPad Replication",
+                items: [
+                  "Interactive drill designer",
+                  "Formation builder",
+                  "Tactical animations",
+                  "Session management"
+                ],
+                color: "#667eea",
+                percentage: 100
+              },
+              {
+                icon: "globe",
+                title: "Platform Strategy",
+                subtitle: "Universal Access",
+                items: [
+                  "Windows & macOS desktop",
+                  "iOS & Android mobile",
+                  "Real-time cloud sync",
+                  "Offline-first architecture"
+                ],
+                color: "#764ba2",
+                percentage: 95
+              },
+              {
+                icon: "sparkles",
+                title: "Value Additions",
+                subtitle: "Beyond Replication",
+                items: [
+                  "Advanced analytics",
+                  "Theme customization",
+                  "AI-powered suggestions",
+                  "Performance insights"
+                ],
+                color: "#84fab0",
+                percentage: 85
+              }
+            ].map((pillar, i) => (
+              <div key={i} className="feature-card-modern hover-lift" style={{animationDelay: `${i * 0.1}s`}}>
+                <div className="flex justify-between items-start mb-4">
+                  <div className="icon-circle" style={{background: `linear-gradient(135deg, ${pillar.color}20, ${pillar.color}10)`}}>
+                    <Icon name={pillar.icon} size={28} color={pillar.color} />
+                  </div>
+                  <div className="text-right">
+                    <div className="text-2xl font-bold" style={{color: pillar.color}}>{pillar.percentage}%</div>
+                    <div className="text-xs text-gray-500">Confidence</div>
                   </div>
                 </div>
+                <h4 className="font-bold text-lg mb-1">{pillar.title}</h4>
+                <p className="text-sm text-gray-500 mb-3">{pillar.subtitle}</p>
+                <ul className="space-y-2">
+                  {pillar.items.map((item, j) => (
+                    <li key={j} className="flex items-center gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full" style={{backgroundColor: pillar.color}}></div>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              
-              <div className="feature-card-modern">
-                <div className="flex items-start gap-3">
-                  <Icon name="monitor-smartphone" size={24} color="#764ba2" />
-                  <div>
-                    <h4 className="font-semibold mb-1">Platform Parity</h4>
-                    <p className="text-sm text-gray-600">Desktop & Mobile (Win/Mac/iOS/Android) with seamless sync</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="feature-card-modern">
-                <div className="flex items-start gap-3">
-                  <Icon name="palette" size={24} color="#84fab0" />
-                  <div>
-                    <h4 className="font-semibold mb-1">Enhancements</h4>
-                    <p className="text-sm text-gray-600">Themes, quick search, basic analytics, offline mode</p>
-                  </div>
-                </div>
-              </div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Key Success Factors & Challenges */}
+        <div className="grid grid-cols-2 gap-6">
+          {/* Success Factors */}
+          <div className="glass-card p-6 rounded-xl" style={{background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05))'}}>
+            <div className="flex items-center gap-3 mb-4">
+              <Icon name="check-circle" size={24} color="#667eea" />
+              <h4 className="font-bold text-lg">Success Factors</h4>
             </div>
-            
-            <div className="glass-card p-4 rounded-xl mt-6 gradient-warm">
-              <h4 className="font-semibold mb-2">Key Challenges</h4>
-              <div className="flex gap-4">
-                <span className="badge-outline">UX Consistency</span>
-                <span className="badge-outline">Performance</span>
-                <span className="badge-outline">Security</span>
-              </div>
+            <div className="space-y-3">
+              {[
+                { label: "User Experience", value: "Intuitive & familiar interface", icon: "users" },
+                { label: "Performance", value: "Sub-second response times", icon: "zap" },
+                { label: "Reliability", value: "99.9% uptime guarantee", icon: "shield" },
+                { label: "Scalability", value: "10,000+ concurrent users", icon: "trending-up" }
+              ].map((factor, i) => (
+                <div key={i} className="flex items-center justify-between p-3 bg-white/50 rounded-lg">
+                  <div className="flex items-center gap-3">
+                    <Icon name={factor.icon} size={16} color="#667eea" />
+                    <span className="font-medium text-sm">{factor.label}</span>
+                  </div>
+                  <span className="text-sm text-gray-600">{factor.value}</span>
+                </div>
+              ))}
             </div>
           </div>
           
-          <div>
-            <div className="chart-container">
-              <h4 className="font-semibold mb-4">Feature Coverage</h4>
-              <div className="space-y-3">
-                {[
-                  { feature: "Drawing Tools", coverage: 100 },
-                  { feature: "Animation", coverage: 95 },
-                  { feature: "Collaboration", coverage: 90 },
-                  { feature: "Analytics", coverage: 75 },
-                  { feature: "Multi-Sport", coverage: 100 }
-                ].map((item, i) => (
-                  <div key={i}>
-                    <div className="flex justify-between mb-1">
-                      <span className="text-sm">{item.feature}</span>
-                      <span className="text-sm font-semibold">{item.coverage}%</span>
-                    </div>
-                    <div className="progress">
-                      <div 
-                        className="progress-bar" 
-                        style={{
-                          width: `${item.coverage}%`,
-                          animationDelay: `${i * 0.2}s`
-                        }}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+          {/* Key Challenges */}
+          <div className="glass-card p-6 rounded-xl" style={{background: 'linear-gradient(135deg, rgba(250, 112, 154, 0.05), rgba(254, 225, 64, 0.05))'}}>
+            <div className="flex items-center gap-3 mb-4">
+              <Icon name="alert-triangle" size={24} color="#fa709a" />
+              <h4 className="font-bold text-lg">Key Challenges</h4>
             </div>
-            
-            <div className="modern-card mt-6 text-center hover-glow">
-              <Icon name="target" size={32} color="#e73c7e" className="mx-auto mb-2" />
-              <p className="font-semibold">Multi-Sport Ready</p>
-              <p className="text-xs text-gray-600 mt-1">Football, Basketball, Hockey, Rugby & more</p>
+            <div className="space-y-3">
+              {[
+                { challenge: "Cross-platform consistency", solution: "Unified design system", priority: "Critical" },
+                { challenge: "Real-time synchronization", solution: "WebSocket architecture", priority: "High" },
+                { challenge: "Offline functionality", solution: "Progressive Web App", priority: "High" },
+                { challenge: "Data migration", solution: "Automated tools", priority: "Medium" }
+              ].map((item, i) => (
+                <div key={i} className="p-3 bg-white/50 rounded-lg">
+                  <div className="flex justify-between items-start mb-1">
+                    <span className="font-medium text-sm">{item.challenge}</span>
+                    <span className={`text-xs px-2 py-1 rounded-full ${
+                      item.priority === 'Critical' ? 'bg-red-100 text-red-600' :
+                      item.priority === 'High' ? 'bg-orange-100 text-orange-600' :
+                      'bg-yellow-100 text-yellow-600'
+                    }`}>{item.priority}</span>
+                  </div>
+                  <span className="text-xs text-gray-500">→ {item.solution}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        
+        {/* Bottom Progress Indicator */}
+        <div className="mt-8 p-4 glass-card rounded-xl">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <Icon name="git-branch" size={20} color="#667eea" />
+              <span className="text-sm font-medium">Project Complexity Score</span>
+            </div>
+            <div className="flex items-center gap-6">
+              {['Research', 'Planning', 'Execution', 'Delivery'].map((phase, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${
+                    i === 0 ? 'bg-gradient-to-br from-blue-500 to-purple-500 text-white' : 'bg-gray-200 text-gray-500'
+                  }`}>
+                    {i + 1}
+                  </div>
+                  <span className={`text-xs ${i === 0 ? 'font-semibold' : 'text-gray-500'}`}>{phase}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
